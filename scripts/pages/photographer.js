@@ -27,15 +27,14 @@ async function getMediasById(id){
 
 
 async function displayProfileData(photographers, mediasPhotographer) {
-    // console.log(photographers)
-    // photographers.forEach((photographer) => {
-    //     const photographerModel = photographerTemplate(photographer);
-    //     photographerModel.getUserProfileCard();
-    // })
+    console.log(photographers)
+    const photographerModelProfil = photographerProfileTemplate(photographers);
+    photographerModelProfil.getUserProfileCard();
+
     console.log(mediasPhotographer)
     mediasPhotographer.forEach((photographer) => {
-        const photographerModel = photographerProfileTemplate(photographer);
-        photographerModel.getUserProfileCard();
+        // const photographerModel = photographerProfileTemplate(photographer);
+        // photographerModel.getUserProfileCard();
     })
 }
 

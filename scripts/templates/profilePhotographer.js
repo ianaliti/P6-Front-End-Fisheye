@@ -1,14 +1,20 @@
 function photographerProfileTemplate(data) {
-    const { id, photographerId, price, title } = data;
+    const { id, name, city, country, portrait, tagline, title, image, likes, video } = data;
 
     function getUserProfileCard() {
         let cardHtmlModel = `
-                        <article class="card-wrapper">
-                            <div class="card">
-                                <h2 class="profile-card-title">${price}</h2>
+                        <article class="card-profile">
+                            <div class="card-content">
+                                <h2 class="profile-card-title">${name}</h2>
                                 </a>
                             <div class="card-text">
-                                <p class="profile-loc-text">${title}</p>
+                               <p class="profile-loc-text">${city}, ${country}</p>
+                                <p class="profile-tagline">${tagline}</p>
+                            </div> 
+                            </div>
+                             <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+                            <div>
+                                <img src="assets/images/PhotographersIDPhotos/${portrait}" class="profile-img-big">
                             </div>
                             </div>
                         </article>`;
@@ -18,5 +24,11 @@ function photographerProfileTemplate(data) {
         const photographersSection = document.querySelector(".photographer_section");
         photographersSection.insertAdjacentHTML('beforebegin', cardHtmlModel)
     }
-    return { id, photographerId, price, title, getUserProfileCard }
+
+    function getMediasProfile() {
+        if(video) {
+            
+        }
+    }
+    return { id, name, city, country, portrait, tagline, title, image, likes, video, getUserProfileCard, getMediasProfile  }
 }

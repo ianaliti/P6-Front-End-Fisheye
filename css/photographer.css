@@ -1,3 +1,21 @@
+article {
+    width: 100vh;
+    height: 100%;
+}
+
+.photographer_section {
+    background-color: #FAFAFA;
+
+}
+
+.card-profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+
 #contact_modal {
     display: none;
 }
