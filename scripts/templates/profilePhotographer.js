@@ -1,4 +1,4 @@
-function photographerProfileTemplate(data) {
+function photographerProfileTemplate(data, photographerName) {
     const { id, name, city, country, portrait, tagline, title, image, likes, video } = data;
 
     function getUserProfileCard() {
@@ -19,16 +19,49 @@ function photographerProfileTemplate(data) {
                             </div>
                         </article>`;
 
-        //create article
-
         const photographersSection = document.querySelector(".photographer_section");
         photographersSection.insertAdjacentHTML('beforebegin', cardHtmlModel)
     }
 
     function getMediasProfile() {
+        const nameArray = photographerName.split(' ');
+        const imageFolder = nameArray[0];
+        let cardHtmlModelProfile = ``;
+
         if(video) {
-            
+            cardHtmlModelProfile = `
+                <article class='media-container'> 
+                    <div class='media'>
+                        <video class='media-input'>
+                        <source type="video/mp4" src="./assets/images/${imageFolder}/${video}" alt='video named ${title} made by photographer ${photographerName}'>
+                        </video>
+                        <div class='card-content-like'>
+                        <p>${title}</p>
+                        <div>
+                            <span class='likes'>${likes}</span>
+                            <i class="fa-solid fa-heart" aria-label=”likes”></i>
+                        </div>
+                    </div>
+                    </div>
+                </article>`
+        } else {
+            cardHtmlModelProfile = `
+            <article class='media-container'>
+                <div class='media'>
+                    <img src="./assets/images/${imageFolder}/${image}" class='media-input' alt='image named ${title} created by photographer ${photographerName}'>
+                    <div class='card-content-like'>
+                        <p>${title}</p>
+                        <div>
+                            <span class='likes'>${likes}</span>
+                            <i class="fa-solid fa-heart" aria-label=”likes”></i>
+                        </div>
+                    </div>
+                </div>
+            </article>`;
         }
+
+        const photographersSection = document.querySelector(".medias");
+        photographersSection.insertAdjacentHTML('beforebegin', cardHtmlModelProfile)
     }
     return { id, name, city, country, portrait, tagline, title, image, likes, video, getUserProfileCard, getMediasProfile  }
 }

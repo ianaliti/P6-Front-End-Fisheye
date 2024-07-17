@@ -3,7 +3,7 @@
 :root {
     --font-default: "DM Sans", Arial, Helvetica, sans-serif;
     --primary-font-color: #D3573C;
-    --second-font-color: #911c1c;
+    --primary-bg-color: #901C1C;
     --second-bg-color: #DB8876;
     --primary-border-color: #C4C4C4;
 }
@@ -32,7 +32,7 @@ h1 {
     margin-left: 100px;
 }
 
-#main {
+.main-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 70px;

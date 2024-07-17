@@ -4,6 +4,7 @@ async function fetchData() {
     try {
         const response = await fetch('./data/photographers.json');
         const data = await response.json();
+        console.log(data)
         return data;
     } catch (error) {
         console.log(error);
@@ -27,14 +28,12 @@ async function getMediasById(id){
 
 
 async function displayProfileData(photographers, mediasPhotographer) {
-    console.log(photographers)
     const photographerModelProfil = photographerProfileTemplate(photographers);
     photographerModelProfil.getUserProfileCard();
 
-    console.log(mediasPhotographer)
     mediasPhotographer.forEach((photographer) => {
-        // const photographerModel = photographerProfileTemplate(photographer);
-        // photographerModel.getUserProfileCard();
+        const photographerModel = photographerProfileTemplate(photographer, photographers.name);
+        photographerModel.getMediasProfile();
     })
 }
 
