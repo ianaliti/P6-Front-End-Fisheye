@@ -1,7 +1,6 @@
 
 .photographer_section {
     background-color: #FAFAFA;
-    /* width: 100vh; */
 }
 
 .medias-container {
@@ -10,12 +9,6 @@
     flex-direction: row;
     column-gap: 6%;
 }
-
-/* .media {
-    /* display: flex;
-    flex-direction: row;
-    gap: 20px; */
-/* } */
 
 .media-input {
     object-fit: cover;
@@ -31,10 +24,6 @@
     color: var(--primary-bg-color);
 }
 
-/* .card-content-like p {
-    font-size: 24px;
-    color: var(--primary-font-color);
-} */
 
 .likes {
     padding: 5px;
@@ -47,6 +36,86 @@
     padding: 20px;
 }
 
+.modal-img {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: white;
+    color: #fff;
+    z-index: 1;
+    overflow: auto;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .modalContent {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-image-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 50vh;
+  }
+
+  .image-txt {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modalImg {
+    width: 70%;
+    height: 70%;
+  }
+
+  .modalTxt {
+    margin-top: 1em;
+    font-size: 22px;
+    color: var(--primary-bg-color);
+  }
+
+  .image-button {
+    color: var(--primary-bg-color);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+  }
+
+  .close {
+    position: absolute;
+    color: var(--primary-bg-color);
+    top: 1em;
+    right: 1.5em;
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+  .modal-img.appear {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .modal-img.appear .modalImg,
+  .modal-img.appear .modalTxt {
+    animation: zoom 0.3s linear;
+  }
+  @keyframes zoom {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
 
 #contact_modal {
     display: none;

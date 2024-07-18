@@ -4,7 +4,6 @@ async function fetchData() {
     try {
         const response = await fetch('./data/photographers.json');
         const data = await response.json();
-        console.log(data)
         return data;
     } catch (error) {
         console.log(error);
@@ -24,7 +23,6 @@ async function getMediasById(id){
         (media) => media.photographerId === Number(id));
     return photographerMedias;
 }
-
 
 
 async function displayProfileData(photographers, mediasPhotographer) {
@@ -48,3 +46,5 @@ async function init() {
 }
 
 init()
+
+
