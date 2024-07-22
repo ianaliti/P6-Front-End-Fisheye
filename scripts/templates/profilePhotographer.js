@@ -68,12 +68,10 @@ function photographerProfileTemplate(data, photographerName) {
         const prevBtn = document.querySelector(".back");
         const nextBtn = document.querySelector(".next");
 
-
-
-
         images.forEach((image, index) => {
             image.addEventListener("click", () => {
                 modalImg.src = image.src;
+                console.log(image.src);
                 modalTxt.innerHTML = image.alt;
                 modal.classList.add("appear");
 

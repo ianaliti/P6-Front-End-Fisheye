@@ -1,4 +1,3 @@
-
 .photographer_section {
     background-color: #FAFAFA;
 }
@@ -36,6 +35,77 @@
     padding: 20px;
 }
 
+/* Sort */
+
+.sort-menu {
+    display: flex;
+    position: relative;
+    align-items: center;
+    gap: 20px;
+}
+
+.label-sort {
+    font-weight: 700;
+}
+
+.button-dropdown {
+    width: 170px;
+    border: none;
+    height: 50px;
+    color: white;
+    border-radius: 5px 5px 0 0;
+    font-size: 18px;
+    background-color: var(--primary-bg-color);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.button-dropdown i {
+    padding-left: 10px;
+}
+
+.option {
+    display: none;
+}
+
+.arrow {
+    border: solid white;
+    width: 85%;
+    border-width: 0 1px 1px 0;
+}
+
+.dropdown {
+    background-color: var(--primary-bg-color);
+    width: 170px;
+    position: absolute;
+    left: 82px;
+    top: 49px;
+    border-radius: 0 0 5px 5px;
+}
+
+.dropdown-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.select-item {
+    padding-left: 10px;
+    height: 50px;
+    color: white;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    width: 100%;
+    padding-left: 30px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Modal photograph  */
 .modal-img {
     position: fixed;
     height: 100%;
@@ -48,74 +118,79 @@
     overflow: auto;
     opacity: 0;
     pointer-events: none;
-  }
+}
 
-  .modalContent {
+.modalContent {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
+}
 
-  .modal-image-button {
+.modal-image-button {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    height: 50vh;
-  }
+    height: 100vh;
+}
 
-  .image-txt {
+.image-txt {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
+    height: 90%;
+}
 
-  .modalImg {
-    width: 70%;
-    height: 70%;
-  }
+.modalImg {
+    width: 100%;
+    height: 100%;
+}
 
-  .modalTxt {
+.modalTxt {
     margin-top: 1em;
     font-size: 22px;
     color: var(--primary-bg-color);
-  }
+}
 
-  .image-button {
+.image-button {
     color: var(--primary-bg-color);
     border: none;
     outline: none;
     cursor: pointer;
     background-color: transparent;
-  }
+}
 
-  .close {
+.close {
     position: absolute;
     color: var(--primary-bg-color);
     top: 1em;
     right: 1.5em;
     font-size: 1.5em;
     cursor: pointer;
-  }
-  .modal-img.appear {
+}
+
+.modal-img.appear {
     opacity: 1;
     pointer-events: all;
-  }
-  .modal-img.appear .modalImg,
-  .modal-img.appear .modalTxt {
+}
+
+.modal-img.appear .modalImg,
+.modal-img.appear .modalTxt {
     animation: zoom 0.3s linear;
-  }
-  @keyframes zoom {
+}
+
+@keyframes zoom {
     from {
-      transform: scale(0);
+        transform: scale(0);
     }
+
     to {
-      transform: scale(1);
+        transform: scale(1);
     }
-  }
+}
 
 #contact_modal {
     display: none;

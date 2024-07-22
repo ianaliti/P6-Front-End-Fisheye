@@ -19,10 +19,19 @@
   <main id="main">
     <div class="photograph-header">
       <div class="photographer_section"></div>
-      <!-- <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-      </div> -->
-      <div>
-        <p>Trier par</p>
+      <div class="sort-menu">
+        <label for="button-dropdown" class="label-sort">Trier par</label>
+        <button class="button-dropdown" id="button-dropdown">Popularité<i class="fa-solid fa-chevron-down"></i></button>
+        <div id="dropdown" class="dropdown hidden">
+          <div class="dropdown-content">
+            <div class="arrow"></div>
+            <label class="select-item" for="select-date">Date</label>
+            <input class="option" id="select-date" type="radio" value="date">
+            <div class="arrow"></div>
+            <label class="select-item" for="select-title">Titre</label>
+            <input class="option" id="select-title" type="radio" value="titre">
+          </div>
+        </div>
       </div>
       <div class="medias-container">
         <div class="medias"></div>
@@ -35,7 +44,7 @@
               <i class="fa-solid fa-chevron-left fa-2xl"></i>
             </button>
             <div class="image-txt">
-              <img src="" class="modalImg" />
+              <img src=" " class="modalImg" />
               <span class="modalTxt"></span>
             </div>
             <button type="button" class="image-button next">
