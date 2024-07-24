@@ -192,10 +192,6 @@
     }
 }
 
-#contact_modal {
-    display: none;
-}
-
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
@@ -215,6 +211,13 @@
     cursor: pointer;
 }
 
+/* Contact modal */
+
+
+#contact_modal {
+    display: none;
+}
+
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
@@ -225,6 +228,8 @@
     justify-content: space-between;
     padding: 35px;
     margin: auto;
+    position: relative;
+    z-index: 2;
 }
 
 .modal header {
@@ -267,4 +272,44 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
+    font-size: 25px;
+    width: 100%;
+    padding: 12px 20px;
+    box-sizing: border-box;
 }
+
+textarea {
+    padding: 12px 20px;
+    box-sizing: border-box;
+    font-size: 25px;
+}
+
+form #your-message {
+    width: 100%;
+}
+
+
+.formData[data-error]::after {
+    content: attr(data-error);
+    font-size: 14px;
+    color: var(--primary-bg-color);
+    display: block;
+    text-align: left;
+    line-height: 0.3;
+    opacity: 0;
+    transition: 0.3s;
+  }
+  
+  .formData[data-error-visible="true"]::after {
+    opacity: 1;
+  }
+  
+  .formData[data-error-visible="true"] .text-control {
+    border: 2px solid var(--primary-bg-color);
+  }
+  
+  /* input[data-error]::after {
+    content: attr(data-error);
+    font-size: 14px;
+    color: red;
+  } */

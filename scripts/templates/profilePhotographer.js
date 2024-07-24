@@ -71,7 +71,6 @@ function photographerProfileTemplate(data, photographerName) {
         images.forEach((image, index) => {
             image.addEventListener("click", () => {
                 modalImg.src = image.src;
-                console.log(image.src);
                 modalTxt.innerHTML = image.alt;
                 modal.classList.add("appear");
 
