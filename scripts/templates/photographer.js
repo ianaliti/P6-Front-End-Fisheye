@@ -42,7 +42,6 @@ function photographerTemplate(data) {
         prices.textContent = `${price}€/jour`;
 
 
-
         article.appendChild(card);
         card.appendChild(link);
         link.appendChild(img);
@@ -53,7 +52,6 @@ function photographerTemplate(data) {
         cardText.appendChild(prices);
 
         return (article)
-
     }
 
     return { id, name, city, country, portrait, tagline, price, getUserCardDOM }

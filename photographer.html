@@ -18,13 +18,14 @@
   </header>
   <main id="main">
     <div class="photograph-header">
-      <div class="photographer_section"></div>
+      <div class="photograph-profile"></div>
       <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-      
+      <div class="image-profile"></div>
+    </div>
       <div class="filter">
         <div class="filter-menu">
           <label for="button-dropdown" class="label-filter">Trier par</label>
-          <button class="button-dropdown" id="button-dropdown">Popularité<i class="fa-solid fa-chevron-down"></i></button>
+          <button class="button-dropdown" id="button-dropdown" aria-label="Dropdown de tri des médias">Popularité<i class="fa-solid fa-chevron-down"></i></button>
           <div id="dropdown" class="dropdown hidden">
             <div class="dropdown-content">
               <div class="arrow"></div>
@@ -37,7 +38,7 @@
           </div>
         </div>
       </div>
-      <div class="medias-container">
+      <div class="media-content">
         <div class="medias"></div>
       </div>
       <div class="modal-img">
@@ -128,6 +129,7 @@
   <script src="scripts/templates/profilePhotographer.js"></script>
   <script src="/scripts/utils/contactForm.js"></script>
   <script src="/scripts/utils/dropdown.js"></script>
+  <script src="./scripts/utils/lightbox.js"></script>
 </body>
 
 </html>

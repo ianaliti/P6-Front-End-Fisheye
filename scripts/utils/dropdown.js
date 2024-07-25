@@ -10,7 +10,7 @@ button.addEventListener('click', function(e) {
 })
 
 function toggleHidden() {
-    selectOption.classList.toggle('hidden')
+    selectOption.classList.toggle('hidden');
 }
 
 options.forEach((option) => {

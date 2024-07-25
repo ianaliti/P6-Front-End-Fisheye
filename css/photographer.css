@@ -1,15 +1,49 @@
-.photographer_section {
+.photograph-header {
     background-color: #FAFAFA;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
 }
 
-.medias-container {
+.card-profile {
+    display: block;
+}
+
+.profile-card-title {
+    margin: 0;
+}
+
+.profile-tagline {
+    font-size: 18px;
+    color: #525252;
+}
+
+
+/* medias */
+
+.media-content {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
-    column-gap: 6%;
+    justify-content: center;
 }
 
-.media-input {
+.medias {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 80px;
+    row-gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.media-container {
+    width: 350px;
+
+}
+
+.media-container img,
+.media-container video {
     object-fit: cover;
     width: 350px;
     height: 300px;
@@ -28,14 +62,12 @@
     padding: 5px;
 }
 
-.card-profile {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-}
 
 /* Filter menu */
+
+.filter {
+    margin: 10px 100px;
+}
 
 .filter-menu {
     display: flex;
@@ -48,12 +80,14 @@
     font-weight: 700;
 }
 
+/* dropdown */
+
 .button-dropdown {
     width: 170px;
     border: none;
     height: 50px;
     color: white;
-    border-radius: 5px 5px 0 0;
+    border-radius: 5px;
     font-size: 18px;
     background-color: var(--primary-bg-color);
     display: flex;
@@ -104,6 +138,7 @@
 .hidden {
     display: none;
 }
+
 
 /* Modal photograph  */
 .modal-img {
@@ -298,17 +333,17 @@ form #your-message {
     line-height: 0.3;
     opacity: 0;
     transition: 0.3s;
-  }
-  
-  .formData[data-error-visible="true"]::after {
+}
+
+.formData[data-error-visible="true"]::after {
     opacity: 1;
-  }
-  
-  .formData[data-error-visible="true"] .text-control {
+}
+
+.formData[data-error-visible="true"] .text-control {
     border: 2px solid var(--primary-bg-color);
-  }
-  
-  /* input[data-error]::after {
+}
+
+/* input[data-error]::after {
     content: attr(data-error);
     font-size: 14px;
     color: red;
