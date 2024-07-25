@@ -35,16 +35,16 @@
     padding: 20px;
 }
 
-/* Sort */
+/* Filter menu */
 
-.sort-menu {
+.filter-menu {
     display: flex;
     position: relative;
     align-items: center;
     gap: 20px;
 }
 
-.label-sort {
+.label-filter {
     font-weight: 700;
 }
 

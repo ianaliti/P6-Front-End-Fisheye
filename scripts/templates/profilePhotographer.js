@@ -2,31 +2,50 @@ function photographerProfileTemplate(data, photographerName) {
     const { id, name, city, country, portrait, tagline, title, image, likes, video } = data;
 
     function getUserProfileCard() {
-        let cardHtmlModel = `
-                        <article class="card-profile">
-                            <div class="card-content">
-                                <h2 class="profile-card-title">${name}</h2>
-                                </a>
-                            <div class="card-text">
-                               <p class="profile-loc-text">${city}, ${country}</p>
-                                <p class="profile-tagline">${tagline}</p>
-                            </div> 
-                            </div>
-                             <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-                            <div>
-                                <img src="assets/images/PhotographersIDPhotos/${portrait}" class="profile-img-big">
-                            </div>
-                            </div>
-                        </article>`;
+        // const picture = `assets/images/PhotographersIDPhotos/${portrait}`;
 
-        const photographersSection = document.querySelector(".photographer_section");
-        photographersSection.insertAdjacentHTML('beforebegin', cardHtmlModel)
+        // const article = document.createElement('article');
+        //     article.classList.add("card-profile");
+
+        // const cardContent = document.createElement('div');
+        //     cardContent.classList.add("card-content");
+
+        // const h2 = document.createElement('h2');
+        //     h2.classList.add("profile-card-title");
+        //     h2.textContent = name;
+        //     h2.setAttribute("aria-label", name)
+
+        // const cardText = document.createElement('div');
+        //     cardText.classList.add("card-text");
+
+        // const location = document.createElement('p');
+        //     location.classList.add("profile-loc-text");
+
+        // const tagline = document.createElement('p');
+        //     tagline.classList.add("profile-tagline");
+
+        // const img = document.createElement('img');
+        //     img.classList.add("profile-img-big");
+        //     img.setAttribute("src", picture);
+        //     img.setAttribute("alt", `Portrait de ${name}`)
+        //     img.setAttribute("aria-label", "Portrait de " + name)
+
+        //     article.appendChild(cardContent);
+        //     article.appendChild(h2);
+        //     article.appendChild(cardText);
+        //     article.appendChild(location);
+        //     article.appendChild(tagline);
+        //     article.appendChild(img)
+
+        //     return (article)
     }
 
     function getMediasProfile() {
         const nameArray = photographerName.split(' ');
         const imageFolder = nameArray[0];
-        let cardHtmlModelProfile = ``;
+
+        const mediaVideo = `assets/images/${imageFolder}/${video}`;
+        const mediaImage = `assets/images/${imageFolder}/${image}`;
 
         if (video) {
             cardHtmlModelProfile = `
@@ -52,12 +71,39 @@ function photographerProfileTemplate(data, photographerName) {
                     <div class='card-content-like'>
                         <p>${title}</p>
                         <div>
-                            <span class='likes'>${likes}</span>
+                            <input class="likes" type="checkbox" tabindex="0" id='${id}' name ="likes" onclick="return onHeartCheckBox(event)"
+                          onkeydown="return onHeartCheckBox(event)">
+                            <label>${likes}</label>
                             <i class="fa-solid fa-heart" aria-label=”likes”></i>
                         </div>
                     </div>
                 </div>
             </article>`;
+
+            // const article = document.createElement('article');
+            // article.classList.add("media-container");
+
+            // const img = document.createElement('img');
+            // img.classList.add("media-input");
+            // img.setAttribute("src", mediaVideo);
+            // img.setAttribute("alt", title);
+            // img.setAttribute("aria-label", title)
+
+            // const cardContent = document.createElement('div');
+            // cardContent.classList.add("card-content-like");
+
+            // const p = document.createElement('p');
+            // p.textContent = title;
+            // p.setAttribute("aria-label", title)
+
+
+
+            // article.appendChild(img);
+            // article.appendChild(cardContent);
+            // article.appendChild(p);
+
+            // return (article)
+
         }
 
         const images = document.querySelectorAll('.media img')

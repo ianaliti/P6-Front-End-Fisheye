@@ -32,7 +32,7 @@ h1 {
     margin-left: 100px;
 }
 
-.main-wrapper {
+.photographer_section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 70px;

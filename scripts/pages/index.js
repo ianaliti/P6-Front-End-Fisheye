@@ -14,10 +14,13 @@ async function fetchData() {
 } 
 
 async function displayData(photographers) {
+    const photographerSections = document.querySelector('.photographer_section');
 
     photographers.forEach((photographer) => {
-        const photographerModel = photographerTemplate(photographer);
-        photographerModel.getUserCardDOM();
+        const photographerProfil = photographerTemplate(photographer);
+        const userCard = photographerProfil.getUserCardDOM();
+        photographerSections.appendChild(userCard);
+
     });
 }
 

@@ -26,12 +26,16 @@ async function getMediasById(id){
 
 
 async function displayProfileData(photographers, mediasPhotographer) {
+    const photographerSection = document.querySelector('.photographer_section');
+
     const photographerModelProfil = photographerProfileTemplate(photographers);
-    photographerModelProfil.getUserProfileCard();
+    const userCard = photographerModelProfil.getUserProfileCard();
+    photographerSection.appendChild(userCard);
 
     mediasPhotographer.forEach((photographer) => {
         const photographerModel = photographerProfileTemplate(photographer, photographers.name);
-        photographerModel.getMediasProfile();
+        const userMedia = photographerModel.getMediasProfile();
+        photographerSection.appendChild(userMedia)
     })
 }
 

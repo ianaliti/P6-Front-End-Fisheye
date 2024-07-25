@@ -19,17 +19,21 @@
   <main id="main">
     <div class="photograph-header">
       <div class="photographer_section"></div>
-      <div class="sort-menu">
-        <label for="button-dropdown" class="label-sort">Trier par</label>
-        <button class="button-dropdown" id="button-dropdown">Popularité<i class="fa-solid fa-chevron-down"></i></button>
-        <div id="dropdown" class="dropdown hidden">
-          <div class="dropdown-content">
-            <div class="arrow"></div>
-            <label class="select-item" for="select-date">Date</label>
-            <input class="option" id="select-date" type="radio" value="date">
-            <div class="arrow"></div>
-            <label class="select-item" for="select-title">Titre</label>
-            <input class="option" id="select-title" type="radio" value="titre">
+      <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+      
+      <div class="filter">
+        <div class="filter-menu">
+          <label for="button-dropdown" class="label-filter">Trier par</label>
+          <button class="button-dropdown" id="button-dropdown">Popularité<i class="fa-solid fa-chevron-down"></i></button>
+          <div id="dropdown" class="dropdown hidden">
+            <div class="dropdown-content">
+              <div class="arrow"></div>
+              <label class="select-item" for="select-date">Date</label>
+              <input class="option" id="select-date" type="radio" value="date">
+              <div class="arrow"></div>
+              <label class="select-item" for="select-title">Titre</label>
+              <input class="option" id="select-title" type="radio" value="titre">
+            </div>
           </div>
         </div>
       </div>
