@@ -1,7 +1,6 @@
 function photographerProfileTemplate(data, photographerName) {
     const { id, name, city, country, portrait, tagline, title, image, likes, video } = data;
 
-
     function getUserProfileCard() {
         const picture = `assets/images/PhotographersIDPhotos/${portrait}`;
 
@@ -51,6 +50,7 @@ function photographerProfileTemplate(data, photographerName) {
 
         const article = document.createElement('article');
         article.classList.add('media-container');
+        article.setAttribute('data-post-id', id)
 
         let videoVSImage;
 
@@ -81,6 +81,8 @@ function photographerProfileTemplate(data, photographerName) {
         p.textContent = title;
 
         const like = document.createElement('div')
+        like.classList.add('likesAndIcon')
+        // like.classList.add('post-like')
 
         let span = document.createElement('span')
         span.classList.add('image-like-number')
@@ -91,9 +93,6 @@ function photographerProfileTemplate(data, photographerName) {
         i.setAttribute("aria-label", "bouton pour liker le média");
         i.setAttribute("role", "button");
         i.setAttribute("tabindex", "0");
-
-        i.addEventListener('click', updateLikes);
-        i.addEventListener('keypress', updateLikes);
 
         article.appendChild(videoVSImage);
         article.appendChild(cardContent);
@@ -168,3 +167,4 @@ function photographerProfileTemplate(data, photographerName) {
 
     return { id, name, city, country, portrait, tagline, title, image, likes, video, getUserProfileCard, getMediasProfile, getLikesAndPrice }
 }
+

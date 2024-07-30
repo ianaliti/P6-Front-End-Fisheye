@@ -34,40 +34,70 @@ function getLikesAndPrice(price, medias) {
     divLikesAndIcon.appendChild(i)
     div.appendChild(priceText)
 
-    return(article)
+    return (article)
 }
 
-const updateTotalLikes = () => {
-    const totalLikesNumber = document.querySelector('.total-likes-number');
-    // const imageLikeNumber = document.querySelectorAll('.image-like-number');
-    totalLikesNumber.textContent = Number(totalLikesNumber.textContent) + 2;
-    // imageLikeNumber.textContent = Number(imageLikeNumber.textContent) + 1;
-    console.log('hi')
+// const updateTotalLikes = () => {
+//     const totalLikesNumber = document.querySelector('.total-likes-number');
+//     totalLikesNumber.textContent = Number(totalLikesNumber.textContent) + 1;
+//     console.log('hi')
 
-};
+// };
 
-const incrementLikesNumber = (likeElement) => {
-    likeElement.textContent = Number(likeElement.textContent) + 1;
-    updateTotalLikes();
-  
-};
+// const incrementLikesNumber = (likeElement) => {
+//     likeElement.textContent = Number(likeElement.textContent) + 1;
+//     updateTotalLikes();
 
-const updateLikes = () => {
-    const likesIcons = document.querySelectorAll('.like-icon');
-    likesIcons.forEach((element) => {
-        element.addEventListener('click', (event) => {
-            event.preventDefault();
-            console.log(element.parentElement.firstChild)
-            incrementLikesNumber(element.parentElement.firstChild);
-        });
+// };
 
-        element.addEventListener('keydown', (event) => {
-            if (event.key === 'Enter') {
-                event.preventDefault();
-                incrementLikesNumber(element.parentElement.firstChild);          
-            }
-        });
+// const updateLikes = () => {
+//     const likesIcons = document.querySelectorAll('.like-icon');
+//     likesIcons.forEach((element) => {
+//         element.addEventListener('click', (event) => {
+//             event.preventDefault();
+//             console.log(element.parentElement.firstChild)
+//             incrementLikesNumber(element.parentElement.firstChild);
+//         });
 
-        // const imageLikesIcon = document.querySelectorAll()
-    });
+//         element.addEventListener('keydown', (event) => {
+//             if (event.key === 'Enter') {
+//                 event.preventDefault();
+//                 incrementLikesNumber(element.parentElement.firstChild);          
+//             }
+//         });
+
+//         // const imageLikesIcon = document.querySelectorAll()
+//     });
+// }
+
+function updateLikes() {
+    const likes = document.querySelectorAll('.media-container');
+
+    likes.forEach(post => {
+        const ratings = post.querySelectorAll(".likesAndIcon");
+
+        ratings.forEach(rating => {
+
+            const span = rating.querySelector('.image-like-number');
+            const icon = rating.querySelector('.like-icon');
+
+            icon.addEventListener("click", () => {
+                ratings.forEach(rating => {
+                    const totalLikesNumber = document.querySelector('.total-likes-number');
+
+                    if (rating.classList.contains('post-like')) {
+                        totalLikesNumber.textContent = Number(totalLikesNumber.textContent) - 1;
+                        span.textContent = Number(span.textContent) - 1;
+                        console.log(span.textContent)
+                        console.log(totalLikesNumber.textContent)
+                        rating.classList.remove('post-like')
+                        console.log(rating.classList)
+                    }
+                        span.textContent = Number(span.textContent) + 1;
+                        totalLikesNumber.textContent = Number(totalLikesNumber.textContent) + 1;
+                        rating.classList.add('post-like')
+                    })
+                })
+        })
+    })
 }

@@ -38,7 +38,7 @@ async function displayProfileData(photographers, mediasPhotographer) {
         const userMedia = photographerModel.getMediasProfile();
         photographerMedia.appendChild(userMedia);
     })
-    getLikesAndPrice(photographers.price, mediasPhotographer)
+    getLikesAndPrice(photographers.price, mediasPhotographer);
 }
 
 
@@ -50,6 +50,7 @@ async function init() {
    const photographers = await getPhotographerById(id);
    const mediasPhotographer = await getMediasById(id);
    await displayProfileData(photographers, mediasPhotographer)
+   updateLikes()
 }
 
 init()
