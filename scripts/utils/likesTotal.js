@@ -20,10 +20,10 @@ function getLikesAndPrice(price, medias) {
     span.textContent = likesNumber;
 
     const i = document.createElement('i');
-    i.className = "fa-solid fa-heart like-icon";
+    i.className = "fa-solid fa-heart";
     i.setAttribute('aria-label', 'likes')
 
-    const priceText = document.createElement('p');
+    const priceText = document.createElement('div');
     priceText.textContent = `${price}€/jour`;
 
 
@@ -42,7 +42,7 @@ const updateTotalLikes = () => {
     // const imageLikeNumber = document.querySelectorAll('.image-like-number');
     totalLikesNumber.textContent = Number(totalLikesNumber.textContent) + 2;
     // imageLikeNumber.textContent = Number(imageLikeNumber.textContent) + 1;
-    console.log('totalLikesNumber')
+    console.log('hi')
 
 };
 
@@ -57,6 +57,7 @@ const updateLikes = () => {
     likesIcons.forEach((element) => {
         element.addEventListener('click', (event) => {
             event.preventDefault();
+            console.log(element.parentElement.firstChild)
             incrementLikesNumber(element.parentElement.firstChild);
         });
 
@@ -67,5 +68,6 @@ const updateLikes = () => {
             }
         });
 
+        // const imageLikesIcon = document.querySelectorAll()
     });
 }

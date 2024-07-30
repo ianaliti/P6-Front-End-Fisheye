@@ -82,14 +82,9 @@ function photographerProfileTemplate(data, photographerName) {
 
         const like = document.createElement('div')
 
-        const input = document.createElement('input');
-        input.setAttribute('type', 'checkbox')
-        input.classList.add('likes');
-        input.setAttribute('name', 'likes')
-
-        let label = document.createElement('label')
-        label.classList.add('image-like-number')
-        label.textContent = likes;
+        let span = document.createElement('span')
+        span.classList.add('image-like-number')
+        span.textContent = likes;
 
         const i = document.createElement('i');
         i.className = "fa-solid fa-heart like-icon";
@@ -104,8 +99,7 @@ function photographerProfileTemplate(data, photographerName) {
         article.appendChild(cardContent);
         cardContent.appendChild(p)
         cardContent.appendChild(like)
-        like.appendChild(input)
-        like.appendChild(label)
+        like.appendChild(span)
         like.appendChild(i)
 
         return (article)
