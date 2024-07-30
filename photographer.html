@@ -16,16 +16,18 @@
   <header>
     <a href="./index.html"><img src="assets/images/logo/logo.png" class="logo" /></a>
   </header>
-  <main id="main">
-    <div class="photograph-header">
-      <div class="photograph-profile"></div>
-      <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-      <div class="image-profile"></div>
-    </div>
+  <main>
+    <section class="main">
+      <div class="photograph-header">
+        <div class="photograph-profile"></div>
+        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <div class="image-profile"></div>
+      </div>
       <div class="filter">
         <div class="filter-menu">
           <label for="button-dropdown" class="label-filter">Trier par</label>
-          <button class="button-dropdown" id="button-dropdown" aria-label="Dropdown de tri des médias">Popularité<i class="fa-solid fa-chevron-down"></i></button>
+          <button class="button-dropdown" id="button-dropdown" aria-label="Dropdown de tri des médias">Popularité<i
+              class="fa-solid fa-chevron-down"></i></button>
           <div id="dropdown" class="dropdown hidden">
             <div class="dropdown-content">
               <div class="arrow"></div>
@@ -58,78 +60,52 @@
           </div>
         </div>
       </div>
-  </main>
-  <div id="contact_modal">
-    <div class="modal" role="dialog" aria-labelledby="modal-title">
-      <header>
-        <h2 id="modal-title">Contactez-moi</h2>
-        <img src="assets/icons/close.svg" 
-            alt="icone d'une croix pour fermeture fenêtre"
-            role="button"
-            aria-label="Bouton pour fermer la fenêtre de contact"
-            tabindex="6" 
-            onclick="closeModal()" />
-      </header>
-      <form name="form" action="photographer.html" method="post">
-        <div class="formData">
-          <label for="first">Prénom</label><br />
-          <input
-            class="text-control"
-            type="text"
-            id="first"
-            name="first"
-            aria-label="Champ de saisi pour indiquer votre Prénom"
-            tabindex="1"
-          /><br />
+    </section>
+    <section class="modal-section">
+      <div id="contact_modal">
+        <div class="modal" role="dialog" aria-labelledby="modal-title">
+          <header>
+            <h2 id="modal-title">Contactez-moi</h2>
+            <img src="assets/icons/close.svg" alt="icone d'une croix pour fermeture fenêtre" role="button"
+              aria-label="Bouton pour fermer la fenêtre de contact" tabindex="6" onclick="closeModal()" />
+          </header>
+          <form name="form" action="photographer.html" method="post">
+            <div class="formData">
+              <label for="first">Prénom</label><br />
+              <input class="text-control" type="text" id="first" name="first"
+                aria-label="Champ de saisi pour indiquer votre Prénom" tabindex="1" /><br />
+            </div>
+            <div class="formData">
+              <label for="last">Nom</label><br />
+              <input class="text-control" type="text" id="last" name="last"
+                aria-label="Champ de saisi pour indiquer votre Nom" tabindex="2" /><br />
+            </div>
+            <div class="formData">
+              <label for="email">E-mail</label><br />
+              <input class="text-control" type="email" id="email" name="email"
+                aria-label="Champ de saisi pour indiquer votre E-mail" tabindex="3" /><br />
+            </div>
+            <div class="formData">
+              <label for="your-message">Votre message</label><br />
+              <textarea name="message" id="your-message" rows="5"
+                aria-label="Champ de saisi limité à 500 caractères maximum pour écrire votre message - "
+                tabindex="4"></textarea><br />
+            </div>
+            <button name="Send" class="contact_button" aria-label="Bouton pour envoyer le formulaire de contact"
+              tabindex="5">
+              Envoyer
+            </button>
+          </form>
         </div>
-        <div class="formData">
-          <label for="last">Nom</label><br />
-          <input
-            class="text-control"
-            type="text"
-            id="last"
-            name="last"
-            aria-label="Champ de saisi pour indiquer votre Nom"
-            tabindex="2"
-          /><br />
-        </div>
-        <div class="formData">
-          <label for="email">E-mail</label><br />
-          <input
-            class="text-control"
-            type="email"
-            id="email"
-            name="email"
-            aria-label="Champ de saisi pour indiquer votre E-mail"
-            tabindex="3"
-          /><br />
-        </div>
-        <div class="formData">
-          <label for="your-message">Votre message</label><br />
-          <textarea
-            name="message"
-            id="your-message"
-            rows="5"
-            aria-label="Champ de saisi limité à 500 caractères maximum pour écrire votre message - "
-            tabindex="4"
-          ></textarea><br />
-        </div>
-        <button
-          name="Send"
-          class="contact_button"
-          aria-label="Bouton pour envoyer le formulaire de contact"
-          tabindex="5"
-        >
-          Envoyer
-        </button>
-      </form>
+      </div>
+    </section>
+    <div class="total-likes">
     </div>
-  </div>
+  </main>
   <script src="/scripts/pages/photographer.js"></script>
   <script src="scripts/templates/profilePhotographer.js"></script>
   <script src="/scripts/utils/contactForm.js"></script>
   <script src="/scripts/utils/dropdown.js"></script>
-  <script src="./scripts/utils/lightbox.js"></script>
+  <script src="/scripts//utils/likesTotal.js"></script>
 </body>
-
 </html>

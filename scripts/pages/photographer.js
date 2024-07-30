@@ -36,8 +36,9 @@ async function displayProfileData(photographers, mediasPhotographer) {
     mediasPhotographer.forEach((photographer) => {
         const photographerModel = photographerProfileTemplate(photographer, photographers.name);
         const userMedia = photographerModel.getMediasProfile();
-        photographerMedia.appendChild(userMedia)
+        photographerMedia.appendChild(userMedia);
     })
+    getLikesAndPrice(photographers.price, mediasPhotographer)
 }
 
 
@@ -48,7 +49,7 @@ async function init() {
 
    const photographers = await getPhotographerById(id);
    const mediasPhotographer = await getMediasById(id);
-   displayProfileData(photographers, mediasPhotographer)
+   await displayProfileData(photographers, mediasPhotographer)
 }
 
 init()

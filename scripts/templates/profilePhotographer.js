@@ -1,6 +1,7 @@
 function photographerProfileTemplate(data, photographerName) {
     const { id, name, city, country, portrait, tagline, title, image, likes, video } = data;
 
+
     function getUserProfileCard() {
         const picture = `assets/images/PhotographersIDPhotos/${portrait}`;
 
@@ -71,7 +72,7 @@ function photographerProfileTemplate(data, photographerName) {
             videoVSImage.appendChild(source);
         }
 
-        videoVSImage.classList.add('.media-input')
+        // videoVSImage.classList.add('.media-input')
 
         const cardContent = document.createElement('div');
         cardContent.classList.add("card-content-like")
@@ -86,16 +87,18 @@ function photographerProfileTemplate(data, photographerName) {
         input.classList.add('likes');
         input.setAttribute('name', 'likes')
 
-        const label = document.createElement('label')
+        let label = document.createElement('label')
+        label.classList.add('image-like-number')
         label.textContent = likes;
 
         const i = document.createElement('i');
-        i.className = "fa-solid fa-heart";
+        i.className = "fa-solid fa-heart like-icon";
         i.setAttribute("aria-label", "bouton pour liker le média");
         i.setAttribute("role", "button");
         i.setAttribute("tabindex", "0");
-        // i.addEventListener('click', )
-        // i.addEventListener('keypress', )
+
+        i.addEventListener('click', updateLikes);
+        i.addEventListener('keypress', updateLikes);
 
         article.appendChild(videoVSImage);
         article.appendChild(cardContent);
@@ -116,8 +119,6 @@ function photographerProfileTemplate(data, photographerName) {
     const close = document.querySelector(".close");
     const prevBtn = document.querySelector(".back");
     const nextBtn = document.querySelector(".next");
-
-    console.log(images);
 
     images.forEach((image, index) => {
         image.addEventListener("click", () => {
@@ -171,5 +172,5 @@ function photographerProfileTemplate(data, photographerName) {
         });
     });
 
-    return { id, name, city, country, portrait, tagline, title, image, likes, video, getUserProfileCard, getMediasProfile }
+    return { id, name, city, country, portrait, tagline, title, image, likes, video, getUserProfileCard, getMediasProfile, getLikesAndPrice }
 }
