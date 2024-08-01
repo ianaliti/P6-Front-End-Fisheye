@@ -37,39 +37,6 @@ function getLikesAndPrice(price, medias) {
     return (article)
 }
 
-// const updateTotalLikes = () => {
-//     const totalLikesNumber = document.querySelector('.total-likes-number');
-//     totalLikesNumber.textContent = Number(totalLikesNumber.textContent) + 1;
-//     console.log('hi')
-
-// };
-
-// const incrementLikesNumber = (likeElement) => {
-//     likeElement.textContent = Number(likeElement.textContent) + 1;
-//     updateTotalLikes();
-
-// };
-
-// const updateLikes = () => {
-//     const likesIcons = document.querySelectorAll('.like-icon');
-//     likesIcons.forEach((element) => {
-//         element.addEventListener('click', (event) => {
-//             event.preventDefault();
-//             console.log(element.parentElement.firstChild)
-//             incrementLikesNumber(element.parentElement.firstChild);
-//         });
-
-//         element.addEventListener('keydown', (event) => {
-//             if (event.key === 'Enter') {
-//                 event.preventDefault();
-//                 incrementLikesNumber(element.parentElement.firstChild);          
-//             }
-//         });
-
-//         // const imageLikesIcon = document.querySelectorAll()
-//     });
-// }
-
 function updateLikes() {
     const likes = document.querySelectorAll('.media-container');
 

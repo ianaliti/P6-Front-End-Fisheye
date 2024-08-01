@@ -23,22 +23,44 @@
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
         <div class="image-profile"></div>
       </div>
-      <div class="filter">
-        <div class="filter-menu">
-          <label for="button-dropdown" class="label-filter">Trier par</label>
-          <button class="button-dropdown" id="button-dropdown" aria-label="Dropdown de tri des médias">Popularité<i
-              class="fa-solid fa-chevron-down"></i></button>
-          <div id="dropdown" class="dropdown hidden">
-            <div class="dropdown-content">
-              <div class="arrow"></div>
-              <label class="select-item" for="select-date">Date</label>
-              <input class="option" id="select-date" type="radio" value="date">
-              <div class="arrow"></div>
-              <label class="select-item" for="select-title">Titre</label>
-              <input class="option" id="select-title" type="radio" value="titre">
-            </div>
-          </div>
-        </div>
+
+      <div class="sort_by">
+        <h4 class="sort_title">Trier par</h4>
+
+        <ul class="dropdown">
+          <span class="fa-solid fa-chevron-up"></span>
+          <li
+            role="button"
+            aria-label="Dropdown de tri des médias"
+            id="dropdown-selected"
+            tabindex="0"
+          >
+            Popularité
+          </li>
+          <li aria-expanded="false" role="list" class="dropdown-list-container">
+            <ul class="dropdown-list">
+              <li class="dropdown-button-value" 
+                  tabindex="1" 
+                  id="option-1" 
+                  aria-label="Popularité, permet de trier les medias par popularité">
+                Popularité
+              </li>
+              <li class="dropdown-button-value" 
+                  tabindex="1" 
+                  id="option-2" 
+                  aria-label="Date, permet de trier les medias par date">
+                Date
+              </li>
+              <li class="dropdown-button-value" 
+                  tabindex="1" 
+                  id="option-3" 
+                  aria-label="Titre, permet de trier les medias par titre">
+                Titre
+              </li>
+            </ul>
+          </li>
+        </ul>
+        
       </div>
       <div class="media-content">
         <div class="medias"></div>

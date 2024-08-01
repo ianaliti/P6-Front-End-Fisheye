@@ -1,6 +1,8 @@
 function photographerProfileTemplate(data, photographerName) {
     const { id, name, city, country, portrait, tagline, title, image, likes, video } = data;
 
+    console.log(data)
+
     function getUserProfileCard() {
         const picture = `assets/images/PhotographersIDPhotos/${portrait}`;
 
@@ -72,8 +74,6 @@ function photographerProfileTemplate(data, photographerName) {
             videoVSImage.appendChild(source);
         }
 
-        // videoVSImage.classList.add('.media-input')
-
         const cardContent = document.createElement('div');
         cardContent.classList.add("card-content-like")
 
@@ -82,7 +82,6 @@ function photographerProfileTemplate(data, photographerName) {
 
         const like = document.createElement('div')
         like.classList.add('likesAndIcon')
-        // like.classList.add('post-like')
 
         let span = document.createElement('span')
         span.classList.add('image-like-number')
