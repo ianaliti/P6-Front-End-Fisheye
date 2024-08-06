@@ -1,12 +1,16 @@
+//Function to build the display of the total likes and the price of the photographer.
 function getLikesAndPrice(price, medias) {
 
+    // Retrieve photographer information from DOM
     const totalLikes = document.querySelector('.total-likes')
 
+    // Calculates the total number of likes from the media
     let likesNumber = 0;
     medias.forEach(element => {
         likesNumber += element.likes;
     });
 
+    //Create DOM elements and set attributes
     const article = document.createElement('article')
 
     const div = document.createElement('div');
@@ -26,17 +30,22 @@ function getLikesAndPrice(price, medias) {
     const priceText = document.createElement('div');
     priceText.textContent = `${price}€/jour`;
 
-
+    // Add the items to the div 
     totalLikes.appendChild(article)
+    // Add the items to the article 
     article.appendChild(div)
+    // Add the items to div wth likes and price
     div.appendChild(divLikesAndIcon)
+    // Add the icon and number to the article 
     divLikesAndIcon.appendChild(span)
     divLikesAndIcon.appendChild(i)
+    // Add the price 
     div.appendChild(priceText)
 
     return (article)
 }
 
+//Function to update the total number of likes.
 function updateLikes() {
     const likes = document.querySelectorAll('.media-container');
 
@@ -55,14 +64,12 @@ function updateLikes() {
                     if (rating.classList.contains('post-like')) {
                         totalLikesNumber.textContent = Number(totalLikesNumber.textContent) - 1;
                         span.textContent = Number(span.textContent) - 1;
-                        console.log(span.textContent)
-                        console.log(totalLikesNumber.textContent)
                         rating.classList.remove('post-like')
-                        console.log(rating.classList)
-                    }
+                    } else {
                         span.textContent = Number(span.textContent) + 1;
                         totalLikesNumber.textContent = Number(totalLikesNumber.textContent) + 1;
                         rating.classList.add('post-like')
+                    }
                     })
                 })
         })

@@ -292,6 +292,9 @@
 
 #contact_modal {
     display: none;
+    position: fixed;
+    top: 68px;
+    width: 100%;
 }
 
 .modal {
@@ -304,8 +307,6 @@
     justify-content: space-between;
     padding: 35px;
     margin: auto;
-    position: relative;
-    z-index: 2;
 }
 
 .modal header {

@@ -1,13 +1,16 @@
+//Function to build the photographer's header with his information.
 function photographerProfileTemplate(data, photographerName) {
-    const { id, name, city, country, portrait, tagline, title, image, likes, video } = data;
 
-    console.log(data)
+    // Destructures the photographer's data
+    const { id, name, city, country, portrait, tagline, title, image, likes, video } = data;
 
     function getUserProfileCard() {
         const picture = `assets/images/PhotographersIDPhotos/${portrait}`;
 
+        // Retrieve photographer information from DOM
         const divImage = document.querySelector('.image-profile');
 
+        //Create DOM elements and set attributes
         const article = document.createElement('article');
         article.classList.add("card-profile");
 
@@ -33,9 +36,10 @@ function photographerProfileTemplate(data, photographerName) {
         const img = document.createElement('img');
         img.classList.add("profile-img-big");
         img.setAttribute("src", picture);
-        img.setAttribute("alt", `Portrait de ${name}`)
-        img.setAttribute("aria-label", "Portrait de " + name)
+        img.setAttribute("alt", `Portrait of ${name}`)
+        img.setAttribute("aria-label",` Portrait of ${name}`)
 
+        // Add the items with the header photograther's information to the article
         article.appendChild(cardContent);
         cardContent.appendChild(h2);
         article.appendChild(cardText);
@@ -46,16 +50,19 @@ function photographerProfileTemplate(data, photographerName) {
         return (article)
     }
 
+    //Function to build the template of a media.
     function getMediasProfile() {
         const nameArray = photographerName.split(' ');
         const imageFolder = nameArray[0];
 
+        //Create DOM elements and set attributes
         const article = document.createElement('article');
         article.classList.add('media-container');
         article.setAttribute('data-post-id', id)
 
         let videoVSImage;
 
+        // Checks if it is a video or an image and constructs the corresponding element
         if (image) {
             const media = document.createElement('div');
             media.classList.add('media')
@@ -74,6 +81,9 @@ function photographerProfileTemplate(data, photographerName) {
             videoVSImage.appendChild(source);
         }
 
+        videoPath.setAttribute('tabindex', 0)
+
+        // Create a container for the media content
         const cardContent = document.createElement('div');
         cardContent.classList.add("card-content-like")
 
@@ -89,14 +99,17 @@ function photographerProfileTemplate(data, photographerName) {
 
         const i = document.createElement('i');
         i.className = "fa-solid fa-heart like-icon";
-        i.setAttribute("aria-label", "bouton pour liker le média");
+        i.setAttribute("aria-label", "button to like the media");
         i.setAttribute("role", "button");
         i.setAttribute("tabindex", "0");
 
+        // Add the items to the article 
         article.appendChild(videoVSImage);
         article.appendChild(cardContent);
+        // Add the items to the content card 
         cardContent.appendChild(p)
         cardContent.appendChild(like)
+        // Add the items to the like div
         like.appendChild(span)
         like.appendChild(i)
 
@@ -104,6 +117,7 @@ function photographerProfileTemplate(data, photographerName) {
 
     }
 
+     // Retrieve photographer information from DOM
     const images = document.querySelectorAll('.media-container img')
     const modalLightbox = document.querySelector(".modal-img");
     const modalImg = document.querySelector(".modalImg");

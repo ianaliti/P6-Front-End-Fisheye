@@ -1,11 +1,14 @@
+// Creates a DOM user map for a photographer from the provided data.
 function photographerTemplate(data) {
-    const { id, name, city, country, portrait, tagline, price } = data;
 
+    // Destructures the photographer's data
+    const { id, name, city, country, portrait, tagline, price } = data;
 
     function getUserCardDOM() {
 
         const picture = `assets/images/PhotographersIDPhotos/${portrait}`;
 
+        //create DOM elements and set attributes
         const article = document.createElement('article');
         article.classList.add("card-wrapper");
 

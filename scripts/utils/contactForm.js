@@ -4,13 +4,13 @@ const last = document.getElementById('last');
 const email = document.getElementById('email');
 
 const modal = document.getElementById("contact_modal");
-const modalBackground = document.querySelector('.main')
-const header = document.querySelector('header')
+const modalBackground = document.querySelector('.main');
+const header = document.querySelector('.header')
 
 function displayModal() {
   modal.style.display = "block";
   modalBackground.style.opacity = '0.5';
-  header.style.opacity = '0.5';
+  header.style.display = '0.5';
 }
 
 function closeModal() {
@@ -25,6 +25,43 @@ form.addEventListener('submit', (event) => {
   event.preventDefault()
   validateForm()
 })
+
+// Keyup event listeners for dynamic validation and form submission
+form.addEventListener('keyup', (event) => {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+    validateForm();
+  } else {
+    switch (event.target.id) {
+      case 'first':
+        try {
+          validateFirst(first.value.trim());
+          hideError(first);
+        } catch (error) {
+          throwError(first, error.message);
+        }
+        break;
+      case 'last':
+        try {
+          validateLast(last.value.trim());
+          hideError(last);
+        } catch (error) {
+          throwError(last, error.message);
+        }
+        break;
+      case 'email':
+        try {
+          valideEmail(email.value.trim());
+          hideError(email);
+        } catch (error) {
+          throwError(email, error.message);
+        }
+        break;
+      default:
+        break;
+    }
+  }
+});
 
 // Validate functions
 
