@@ -81,7 +81,7 @@ function photographerProfileTemplate(data, photographerName) {
             videoVSImage.appendChild(source);
         }
 
-        videoPath.setAttribute('tabindex', 0)
+        videoVSImage.setAttribute('tabindex', 0)
 
         // Create a container for the media content
         const cardContent = document.createElement('div');
@@ -118,65 +118,83 @@ function photographerProfileTemplate(data, photographerName) {
     }
 
      // Retrieve photographer information from DOM
-    const images = document.querySelectorAll('.media-container img')
-    const modalLightbox = document.querySelector(".modal-img");
-    const modalImg = document.querySelector(".modalImg");
-    const modalTxt = document.querySelector(".modalTxt");
-    const close = document.querySelector(".close");
-    const prevBtn = document.querySelector(".back");
-    const nextBtn = document.querySelector(".next");
+    // Select all image elements within the media container
+const images = document.querySelectorAll('.media-container img');
 
-    images.forEach((image, index) => {
-        image.addEventListener("click", () => {
-            modalImg.src = image.src;
-            modalTxt.innerHTML = image.alt;
-            modalLightbox.classList.add("appear");
+// Select modal elements
+const modalLightbox = document.querySelector(".modal-img");  // The modal container
+const modalImg = document.querySelector(".modalImg");        // The image element inside the modal
+const modalTxt = document.querySelector(".modalTxt");        // The text element inside the modal
+const close = document.querySelector(".close");              // The close button for the modal
+const prevBtn = document.querySelector(".back");             // The previous button for navigation
+const nextBtn = document.querySelector(".next");             // The next button for navigation
 
-            let imageIndex = index;
-            let next = imageIndex++;
-            let prev = imageIndex--;
+// Add click event listener to each image
+images.forEach((image, index) => {
+    image.addEventListener("click", () => {
+        // Show the clicked image in the modal
+        modalImg.src = image.src;
+        modalTxt.innerHTML = image.alt;
+        modalLightbox.classList.add("appear");
 
-            window.addEventListener("keyup", (e) => {
-                if (next >= images.length) {
-                    next = 0;
-                } else if (prev < 0) {
-                    prev = images.length - 1;
-                }
+        // Initialize indices for navigation
+        let currentIndex = index;
+        let nextIndex = currentIndex + 1;
+        let prevIndex = currentIndex - 1;
 
-                if (e.keyCode === 37) {
-                    modalImg.src = images[prev].src;
-                    modalTxt.innerHTML = images[prev].alt;
-                    prev--;
-                    next = prev + 2;
-                } else if (e.keyCode === 39) {
-                    modalImg.src = images[next].src;
-                    modalTxt.innerHTML = images[next].alt;
-                    next++;
-                    prev = next - 2;
-                } else if (e.keyCode === 27) {
-                    modalLightbox.classList.remove("appear");
-                }
-            });
+        // Handle keyup events for navigation and closing
+        window.addEventListener("keyup", (e) => {
+            // Wrap around indices for circular navigation
+            if (nextIndex >= images.length) {
+                nextIndex = 0;
+            }
+            if (prevIndex < 0) {
+                prevIndex = images.length - 1;
+            }
 
-            prevBtn.addEventListener("click", () => {
-                modalImg.src = images[prev].src;
-                modalTxt.innerHTML = images[prev].alt;
-                prev--;
-                next = prev + 2;
-            });
-
-            nextBtn.addEventListener("click", () => {
-                modalImg.src = images[next].src;
-                modalTxt.innerHTML = images[next].alt;
-                next++;
-                prev = next - 2;
-            });
-
-            close.addEventListener("click", () => {
+            // Left arrow key (37) for previous image
+            if (e.keyCode === 37) {
+                modalImg.src = images[prevIndex].src;
+                modalTxt.innerHTML = images[prevIndex].alt;
+                prevIndex--;
+                nextIndex = prevIndex + 1;
+            }
+            // Right arrow key (39) for next image
+            else if (e.keyCode === 39) {
+                modalImg.src = images[nextIndex].src;
+                modalTxt.innerHTML = images[nextIndex].alt;
+                nextIndex++;
+                prevIndex = nextIndex - 2;
+            }
+            // Escape key (27) to close the modal
+            else if (e.keyCode === 27) {
                 modalLightbox.classList.remove("appear");
-            });
+            }
+        });
+
+        // Handle previous button click
+        prevBtn.addEventListener("click", () => {
+            modalImg.src = images[prevIndex].src;
+            modalTxt.innerHTML = images[prevIndex].alt;
+            prevIndex--;
+            nextIndex = prevIndex + 1;
+        });
+
+        // Handle next button click
+        nextBtn.addEventListener("click", () => {
+            modalImg.src = images[nextIndex].src;
+            modalTxt.innerHTML = images[nextIndex].alt;
+            nextIndex++;
+            prevIndex = nextIndex - 2;
+        });
+
+        // Handle close button click
+        close.addEventListener("click", () => {
+            modalLightbox.classList.remove("appear");
         });
     });
+});
+
 
     return { id, name, city, country, portrait, tagline, title, image, likes, video, getUserProfileCard, getMediasProfile, getLikesAndPrice }
 }
