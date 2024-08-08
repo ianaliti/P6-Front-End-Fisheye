@@ -2,8 +2,9 @@ const form = document.querySelector("form");
 const first = document.getElementById('first');
 const last = document.getElementById('last');
 const email = document.getElementById('email');
+const textarea = document.getElementById('textarea')
 
-const modal = document.getElementById("contact_modal");
+const modal = document.querySelector(".modal-section");
 const modalBackground = document.querySelector('.main');
 const header = document.querySelector('.header')
 
@@ -19,118 +20,29 @@ function closeModal() {
   header.style.opacity = '1';
 }
 
+// Set photographer's name
+function setModalPhotographerName(name) {
+  const photographerName = document.querySelector('.modal-photographer-name');
+  photographerName.textContent = name; 
+}
 
 // Submit form
 form.addEventListener('submit', (event) => {
-  event.preventDefault()
-  validateForm()
-})
+  event.preventDefault();
+  console.log(first.value);
+  console.log(last.value);
+  console.log(email.value);
+  console.log(textarea.value)
+});
 
-// Keyup event listeners for dynamic validation and form submission
+// Keyup event listeners for dynamic form submission
 form.addEventListener('keyup', (event) => {
   if (event.key === 'Enter') {
     event.preventDefault();
-    validateForm();
-  } else {
-    switch (event.target.id) {
-      case 'first':
-        try {
-          validateFirst(first.value.trim());
-          hideError(first);
-        } catch (error) {
-          throwError(first, error.message);
-        }
-        break;
-      case 'last':
-        try {
-          validateLast(last.value.trim());
-          hideError(last);
-        } catch (error) {
-          throwError(last, error.message);
-        }
-        break;
-      case 'email':
-        try {
-          valideEmail(email.value.trim());
-          hideError(email);
-        } catch (error) {
-          throwError(email, error.message);
-        }
-        break;
-      default:
-        break;
-    }
+    console.log(first.value);
+    console.log(last.value);
+    console.log(email.value);
+    console.log(textarea.value)
   }
 });
 
-// Validate functions
-
-// Check that the name value length is more than 2 characters
-const validateFirst = (name) => {
-  let nameRegex = new RegExp("([a-zA-Z_\s]+)");
-  if (!nameRegex.test(name) || name.length < 2) {
-    throw new Error("Votre prénom doit comprendre au moins 2 caractères.")
-  }
-}
-
-// Check that the length of the last name value is more than 2 characters
-const validateLast = (surname) => {
-  let nameRegex = new RegExp("([a-zA-Z_\s]+)");
-  if (!nameRegex.test(surname) || surname.length < 2) {
-    throw new Error("Votre nom doit comprendre au moins 2 caractères.")
-  }
-}
-
-// Check that the email matches the regex and its length is more than zero
-const valideEmail = (email) => {
-  let emailRegExp = new RegExp("[a-z0-9._-]+@[a-z0-9._-]+\.[a-z0-9._-]+");
-  if (!emailRegExp.test(email) || email.value === "") {
-    throw new Error("Veuillez renseigner une adresse email valide.")
-  }
-}
-
-
-//Error messages 
-
-// Send specific error message 
-// Add data-error id and data-error-visible true in CSS
-const throwError = (element, message) => {
-  element.parentElement.setAttribute("data-error", message);
-  element.parentElement.setAttribute("data-error-visible", true);
-}
-
-// 2nd submit, hide a valid field previous invlid
-// Remove data-error id and switch data-error-visible to false in CSS
-const hideError = (element) => {
-  element.parentElement.removeAttribute("data-error");
-  element.parentElement.removeAttribute("data-error-visible");
-}
-
-
-// Validate form
-const validateForm = () => {
-  let isValide = true;
-
-  // Create an array field with objects to maintain the value, DOM elements, and functions
-  const fields = [
-    { value: first.value.trim(), element: first, validator: validateFirst },
-    { value: last.value.trim(), element: last, validator: validateLast },
-    { value: email.value.trim(), element: email, validator: valideEmail }
-  ]
-
-  // Check if the validator function runs with the value without error. If yes, hide the error. If no, display an error with the corresponding message
-  fields.forEach(({ value, element, validator }) => {
-    try {
-      validator(value);
-      hideError(element);
-    } catch (error) {
-      throwError(element, error.message);
-      isValide = false;
-    }
-  });
-
-  if (isValide) {
-    closeModal()
-  }
-
-}

@@ -90,7 +90,7 @@
     <div id="contact_modal">
       <div class="modal" role="dialog" aria-labelledby="modal-title">
         <header>
-          <h2 id="modal-title">Contactez-moi</h2>
+          <h2 id="modal-title">Contactez-moi </br><strong class="modal-photographer-name"></strong></h2>
           <img src="assets/icons/close.svg" alt="icone d'une croix pour fermeture fenêtre" role="button"
             aria-label="Bouton pour fermer la fenêtre de contact" tabindex="6" onclick="closeModal()" />
         </header>
@@ -112,18 +112,18 @@
           </div>
           <div class="formData">
             <label for="your-message">Votre message</label><br />
-            <textarea name="message" id="your-message" rows="5"
+            <textarea name="message" id="textarea" rows="5"
               aria-label="Champ de saisi limité à 500 caractères maximum pour écrire votre message - "
               tabindex="4"></textarea><br />
           </div>
-          <button name="Send" class="contact_button" aria-label="Bouton pour envoyer le formulaire de contact"
+          <button type="submit" class="contact_button" aria-label="Bouton pour envoyer le formulaire de contact"
             tabindex="5">
             Envoyer
           </button>
         </form>
       </div>
     </div>
-  </section>
+  </section>  
   <script src="/scripts/pages/photographer.js"></script>
   <script src="scripts/templates/profilePhotographer.js"></script>
   <script src="/scripts/utils/contactForm.js"></script>

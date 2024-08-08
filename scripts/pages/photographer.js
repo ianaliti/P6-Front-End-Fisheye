@@ -39,7 +39,8 @@ async function displayProfileData(photographers, mediasPhotographer) {
         photographerMedia.appendChild(userMedia);
     })
     getLikesAndPrice(photographers.price, mediasPhotographer);
-    setDropdownList(mediasPhotographer, photographers.name)
+    setDropdownList(mediasPhotographer, photographers.name);
+    setModalPhotographerName(photographers.name);
 }
 
 
