@@ -6,18 +6,19 @@ const textarea = document.getElementById('textarea')
 
 const modal = document.querySelector(".modal-section");
 const modalBackground = document.querySelector('.main');
-const header = document.querySelector('.header')
+const logo = document.querySelector('.logo')
 
 function displayModal() {
   modal.style.display = "block";
   modalBackground.style.opacity = '0.5';
-  header.style.display = '0.5';
+  logo.style.display.opacity = '0.5'
 }
 
 function closeModal() {
   modal.style.display = "none";
   modalBackground.style.opacity = '1';
   header.style.opacity = '1';
+  logo.style.display.opacity = '1'
 }
 
 // Set photographer's name

@@ -14,14 +14,16 @@
 
 <body>
   <header class="header">
-    <a href="./index.html"><img src="assets/images/logo/logo.png" class="logo" /></a>
+    <a href="./index.html" aria-label="Home page" tabindex="0">
+      <img src="assets/images/logo/logo.png" class="logo" alt="fisheye logo"/></a>
   </header>
   <main class="main">
     <section>
       <div class="photograph-header">
-        <div class="photograph-profile"></div>
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-        <div class="image-profile"></div>
+        <div class="photograph-profile" role="informations"></div>
+        <button class="contact_button" onclick="displayModal()" aria-label="Open the contact window" tabindex="0">Contactez-moi</button>
+        <div class="image-profile" role="image" aria-label="Photographer's image"
+        ></div>
       </div>
 
       <div class="sort_by">
@@ -31,30 +33,31 @@
           <span class="fa-solid fa-chevron-up"></span>
           <li
             role="button"
-            aria-label="Dropdown de tri des médias"
+            aria-label="Media sorting dropdown"
             id="dropdown-selected"
             tabindex="0"
           >
             Popularité
           </li>
           <li aria-expanded="false" role="list" class="dropdown-list-container">
+            
             <ul class="dropdown-list">
               <li class="dropdown-button-value" 
                   tabindex="1" 
                   id="option-1" 
-                  aria-label="Popularité, permet de trier les medias par popularité">
+                  aria-label="Popularity, allows sorting media by popularity">
                 Popularité
               </li>
               <li class="dropdown-button-value" 
                   tabindex="1" 
                   id="option-2" 
-                  aria-label="Date, permet de trier les medias par date">
+                  aria-label="Date, allows sorting media by date">
                 Date
               </li>
               <li class="dropdown-button-value" 
                   tabindex="1" 
                   id="option-3" 
-                  aria-label="Titre, permet de trier les medias par titre">
+                  aria-label="Title, allows sorting media by title">
                 Titre
               </li>
             </ul>
@@ -66,19 +69,19 @@
         <div class="medias"></div>
       </div>
       <div class="modal-img">
-        <span class="close"><i class="fas fa-times"></i></span>
+        <span class="close" aria-label="close the the lightbox" tabindex="2"><i class="fas fa-times"></i></span>
         <div class="modalContent">
           <div class="modal-image-button">
-            <button type="button" class="image-button back">
+            <span type="button" class="image-button back" aria-label="return to the previous media" tabindex="1" >
               <i class="fa-solid fa-chevron-left fa-2xl"></i>
-            </button>
+            </span>
             <div class="image-txt">
               <img src=" " class="modalImg" />
               <span class="modalTxt"></span>
             </div>
-            <button type="button" class="image-button next">
+            <span type="button" class="image-button next" aria-label="return to the next media" tabindex="1">
               <i class="fa-solid fa-chevron-right fa-2xl"></i>
-            </button>
+            </span>
           </div>
         </div>
       </div>
@@ -91,32 +94,32 @@
       <div class="modal" role="dialog" aria-labelledby="modal-title">
         <header>
           <h2 id="modal-title">Contactez-moi </br><strong class="modal-photographer-name"></strong></h2>
-          <img src="assets/icons/close.svg" alt="icone d'une croix pour fermeture fenêtre" role="button"
-            aria-label="Bouton pour fermer la fenêtre de contact" tabindex="6" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" alt="icon of a cross to close the window" role="button"
+            aria-label="Button to close the contact window" tabindex="6" onclick="closeModal()" />
         </header>
         <form name="form" action="photographer.html" method="post">
           <div class="formData">
             <label for="first">Prénom</label><br />
             <input class="text-control" type="text" id="first" name="first"
-              aria-label="Champ de saisi pour indiquer votre Prénom" tabindex="1" /><br />
+            aria-label="Field to enter your first name" tabindex="1" /><br />
           </div>
           <div class="formData">
             <label for="last">Nom</label><br />
             <input class="text-control" type="text" id="last" name="last"
-              aria-label="Champ de saisi pour indiquer votre Nom" tabindex="2" /><br />
+            aria-label="Field to enter your last name" tabindex="2" /><br />
           </div>
           <div class="formData">
             <label for="email">E-mail</label><br />
             <input class="text-control" type="email" id="email" name="email"
-              aria-label="Champ de saisi pour indiquer votre E-mail" tabindex="3" /><br />
+            aria-label="Field to enter your email" tabindex="3" /><br />
           </div>
           <div class="formData">
             <label for="your-message">Votre message</label><br />
             <textarea name="message" id="textarea" rows="5"
-              aria-label="Champ de saisi limité à 500 caractères maximum pour écrire votre message - "
+            aria-label="Field limited to 500 characters maximum to write your message"
               tabindex="4"></textarea><br />
           </div>
-          <button type="submit" class="contact_button" aria-label="Bouton pour envoyer le formulaire de contact"
+          <button type="submit" class="contact_button" aria-label="Button to submit the contact form"
             tabindex="5">
             Envoyer
           </button>
