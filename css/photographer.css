@@ -37,13 +37,8 @@
     align-items: center;
 }
 
-.media-container {
-    width: 350px;
-
-}
-
-.media-container img,
-.media-container video {
+.medias img,
+.medias video {
     object-fit: cover;
     width: 350px;
     height: 300px;

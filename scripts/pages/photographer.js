@@ -1,73 +1,47 @@
-//Fetch the data
-async function fetchData() {
-    try {
-        const response = await fetch('./data/photographers.json');
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.log(error);
-    }
-} 
+import { getPhotographerById, getMediasById } from '../utils/fetchData.js';
+import { PhotographerFactory } from '../factories/PhotographerFactory.js';
+import { MediaFactory } from '../factories/MediaFactory.js';
+import { getLikesAndPrice, updateLikes } from '../utils/likesTotal.js';
+import { setDropdownList } from '../utils/dropdown.js';
+import { setModalPhotographerName } from '../utils/contactForm.js';
+import { Lightbox } from '../utils/lightbox.js';
 
-// Returns the photographer object that matches the given id
-async function getPhotographerById(id) {
-    const { photographers } = await fetchData();
-    const profile = photographers.find((photographerId) => 
-        photographerId.id === Number(id));
-    return profile;
-}
+// Display photographer profile and media
+async function displayProfileData(photographer, medias) {
+    const factory = new PhotographerFactory();
+    const mediaFactory = new MediaFactory();
 
-//Filter the media items to find those that belong to the specified photographer id 
-async function getMediasById(id){
-    const { media } = await fetchData();
-    const photographerMedias = await media.filter(
-        (media) => media.photographerId === Number(id));
-    return photographerMedias;
-}
-
-
-async function displayProfileData(photographers, mediasPhotographer) {
     const photographerSection = document.querySelector('.photograph-profile');
-    const photographerMedia = document.querySelector('.medias');
+    const photographerProfile = factory.createComponent("photographerProfile", photographer);
+    const profileDOM = photographerProfile.getUserProfileCard();
+    photographerSection.appendChild(profileDOM);
 
-    //Update the display with likes and pricing information
-    const photographerModelProfil = photographerProfileTemplate(photographers);
-    const userCard = photographerModelProfil.getUserProfileCard();
-    photographerSection.appendChild(userCard);
+    const mediaContainer = document.querySelector('.medias');
+    medias.forEach((media) => {
+        const mediaComponent = mediaFactory.createComponent(media.image ? "image" : "video", media);
+        const mediaDOM = mediaComponent.getMediaDOM();
+        mediaContainer.appendChild(mediaDOM);
+    });
 
-    mediasPhotographer.forEach((photographer) => {
-        //Pass the media and photographer's name to create the template for media items
-        const photographerModel = photographerProfileTemplate(photographer, photographers.name);
-        const userMedia = photographerModel.getMediasProfile();
-        photographerMedia.appendChild(userMedia);
-    })
-    //Update the display with likes and pricing information
-    getLikesAndPrice(photographers.price, mediasPhotographer);
-    //Populate a dropdown list with media items and the photographer's name
-    setDropdownList(mediasPhotographer, photographers.name);
-    // Set the photographer's name in a modal
-    setModalPhotographerName(photographers.name);
+    getLikesAndPrice(photographer.price, medias);
+    setDropdownList(medias, photographer.name);
+    setModalPhotographerName(photographer.name);
+    new Lightbox();
+    updateLikes(); // Ensure this is called after media items are added to the DOM
 }
 
-
+// Initialize the photographer page
 async function init() {
-    //Retrieves the query string from the URL, which includes parameters after the ? in the URL
-   const queryString = window.location.search;
-   //Creates a URLSearchParams object to parse and work with query string parameters
-   const urlParams = new URLSearchParams(queryString);
-   //Extracts the value of the id parameter from the query string
-   const id = urlParams.get('id');
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const id = urlParams.get('id');
 
-   //Fetch the photographer data using getPhotographerById with the extracted id
-   const photographers = await getPhotographerById(id);
-   //Fetch the media data associated with the photographer using getMediasById with the same id
-   const mediasPhotographer = await getMediasById(id);
-    //To populate the profile and media sections with the retrieved data
-   await displayProfileData(photographers, mediasPhotographer)
-   //Update the like counts
-   updateLikes()
+    const photographer = await getPhotographerById(id);
+    const medias = await getMediasById(id);
+    if (photographer && medias) {
+        displayProfileData(photographer, medias);
+        updateLikes();
+    }
 }
 
-init()
-
-
+init();

@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
   <link href="css/style.css" rel="stylesheet" type="text/css" />
   <meta charset="utf-8">
   <link rel="icon" type="image/png" href="assets/images/icon/favicon.png">
   <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-    crossorigin="anonymous" referrerpolicy="no-referrer">
+    crossorigin="anonymous">
   <title>Fisheye</title>
 </head>
-
 <body>
   <header>
     <img src="assets/images/logo/logo.png" class="logo" alt="fisheye logo" />
@@ -20,8 +17,12 @@
   <main id="main">
     <div class="photographer_section"></div>
   </main>
-  <script src="scripts/templates/photographer.js"></script>
-  <script src="scripts/pages/index.js"></script>
-</body>
 
+  <!-- Include the necessary scripts -->
+  <script type="module" src="scripts/utils/fetchData.js"></script>
+  <script type="module" src="scripts/factories/ComponentFactory.js"></script>
+  <script type="module" src="scripts/factories/PhotographerFactory.js"></script>
+  <script type="module" src="scripts/templates/PhotograherCard.js"></script>
+  <script type="module" src="scripts/pages/index.js"></script>
+</body>
 </html>

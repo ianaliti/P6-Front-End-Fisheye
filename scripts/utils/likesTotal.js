@@ -1,18 +1,9 @@
-// Function to build the display of the total likes and the price of the photographer.
-function getLikesAndPrice(price, medias) {
-
-    // Retrieve photographer information from DOM
+// Handle total likes and like updates
+export function getLikesAndPrice(price, medias) {
     const totalLikes = document.querySelector('.total-likes');
+    let likesNumber = medias.reduce((total, media) => total + media.likes, 0);
 
-    // Calculate the total number of likes from the media
-    let likesNumber = 0;
-    medias.forEach(element => {
-        likesNumber += element.likes;
-    });
-
-    // Create DOM elements and set attributes
     const article = document.createElement('article');
-
     const div = document.createElement('div');
     div.classList.add('total-likes-section');
 
@@ -30,51 +21,34 @@ function getLikesAndPrice(price, medias) {
     const priceText = document.createElement('div');
     priceText.textContent = `${price}€/jour`;
 
-    // Add the items to the div 
-    totalLikes.appendChild(article);
-    // Add the items to the article 
-    article.appendChild(div);
-    // Add the items to div with likes and price
-    div.appendChild(divLikesAndIcon);
-    // Add the icon and number to the article 
     divLikesAndIcon.appendChild(span);
     divLikesAndIcon.appendChild(i);
-    // Add the price 
+    div.appendChild(divLikesAndIcon);
     div.appendChild(priceText);
+    article.appendChild(div);
+    totalLikes.appendChild(article);
 
     return article;
 }
 
-// Function to update the total number of likes.
-function updateLikes() {
+export function updateLikes() {
     const likes = document.querySelectorAll('.media-container');
-
     likes.forEach(post => {
         const ratings = post.querySelectorAll(".likesAndIcon");
-
         ratings.forEach(rating => {
             const span = rating.querySelector('.image-like-number');
             const icon = rating.querySelector('.like-icon');
 
-            // Click event to increment/decrement likes
-            icon.addEventListener("click", () => {
-                handleLike(rating, span);
-            });
-
-            // Keyup event for incrementing likes using the Enter key
+            icon.addEventListener("click", () => handleLike(rating, span));
             icon.addEventListener("keyup", (event) => {
-                if (event.key === "Enter") {
-                    handleLike(rating, span);
-                }
+                if (event.key === "Enter") handleLike(rating, span);
             });
         });
     });
 }
 
-// Helper function to handle like logic
 function handleLike(rating, span) {
     const totalLikesNumber = document.querySelector('.total-likes-number');
-
     if (rating.classList.contains('post-like')) {
         totalLikesNumber.textContent = Number(totalLikesNumber.textContent) - 1;
         span.textContent = Number(span.textContent) - 1;
