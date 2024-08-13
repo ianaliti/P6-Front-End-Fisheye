@@ -53,9 +53,44 @@
 }
 
 
-.likes {
-    padding: 5px;
+/* Container for likes and icon */
+.likesAndIcon {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Adjust spacing between number and icon */
 }
+
+/* Like number styling */
+.image-like-number {
+    font-size: 16px;
+    color: #901C1C; /* Adjust color as needed */
+}
+
+/* Like icon styling */
+.like-icon {
+    font-size: 16px;
+    color: #901C1C; /* Adjust color as needed */
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* Hover effect for like icon */
+.like-icon:hover {
+    transform: scale(1.2);
+    color: #D3573C; /* Change to a lighter shade on hover */
+}
+
+/* Active (liked) state */
+.like-icon.liked {
+    color: var(--primary-bg-color)
+}
+
+.media-info {
+    display: flex;
+    justify-content: space-between;
+    color: var(--primary-bg-color);
+}
+
 
 
 /* Filter menu */

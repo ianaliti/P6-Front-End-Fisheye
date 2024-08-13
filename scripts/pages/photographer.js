@@ -18,9 +18,15 @@ async function displayProfileData(photographer, medias) {
 
     const mediaContainer = document.querySelector('.medias');
     medias.forEach((media) => {
+        // Pass the photographer's name to the media DOM creation function
         const mediaComponent = mediaFactory.createComponent(media.image ? "image" : "video", media);
-        const mediaDOM = mediaComponent.getMediaDOM();
-        mediaContainer.appendChild(mediaDOM);
+        const mediaDOM = mediaComponent.getMediaDOM(photographer.name); // Ensure photographer.name is passed
+
+        if (mediaDOM) {
+            mediaContainer.appendChild(mediaDOM);
+        } else {
+            console.error(`Failed to create media DOM for media ID ${media.id}`);
+        }
     });
 
     getLikesAndPrice(photographer.price, medias);
@@ -38,9 +44,11 @@ async function init() {
 
     const photographer = await getPhotographerById(id);
     const medias = await getMediasById(id);
+    
     if (photographer && medias) {
         displayProfileData(photographer, medias);
-        updateLikes();
+    } else {
+        console.error("Photographer or media data is missing or incorrect");
     }
 }
 
