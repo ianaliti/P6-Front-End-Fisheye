@@ -59,3 +59,5 @@ function handleLike(rating, span) {
         rating.classList.add('post-like');
     }
 }
+
+

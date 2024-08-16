@@ -57,30 +57,26 @@
 .likesAndIcon {
     display: flex;
     align-items: center;
-    gap: 5px; /* Adjust spacing between number and icon */
+    gap: 5px; 
 }
 
-/* Like number styling */
 .image-like-number {
-    font-size: 16px;
-    color: #901C1C; /* Adjust color as needed */
+    font-size: 24px;
+    color: var(--primary-bg-color);
 }
 
-/* Like icon styling */
 .like-icon {
-    font-size: 16px;
-    color: #901C1C; /* Adjust color as needed */
+    font-size: 24px;
+    color: var(--primary-bg-color);
     cursor: pointer;
     transition: transform 0.2s ease, color 0.2s ease;
 }
 
-/* Hover effect for like icon */
 .like-icon:hover {
     transform: scale(1.2);
-    color: #D3573C; /* Change to a lighter shade on hover */
+    color: #D3573C; 
 }
 
-/* Active (liked) state */
 .like-icon.liked {
     color: var(--primary-bg-color)
 }
@@ -91,6 +87,9 @@
     color: var(--primary-bg-color);
 }
 
+.media-info p {
+    font-size: 24px;
+}
 
 
 /* Filter menu */

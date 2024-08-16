@@ -18,7 +18,10 @@ async function displayProfileData(photographer, medias) {
 
     const mediaContainer = document.querySelector('.medias');
     medias.forEach((media) => {
-        // Pass the photographer's name to the media DOM creation function
+        if (!photographer.name) {
+            console.error("Photographer name is undefined");
+        }
+
         const mediaComponent = mediaFactory.createComponent(media.image ? "image" : "video", media);
         const mediaDOM = mediaComponent.getMediaDOM(photographer.name); // Ensure photographer.name is passed
 
@@ -30,7 +33,7 @@ async function displayProfileData(photographer, medias) {
     });
 
     getLikesAndPrice(photographer.price, medias);
-    setDropdownList(medias, photographer.name);
+    setDropdownList(medias, photographer.name); // Pass the photographer name to dropdown
     setModalPhotographerName(photographer.name);
     new Lightbox();
     updateLikes(); // Ensure this is called after media items are added to the DOM
@@ -47,8 +50,7 @@ async function init() {
     
     if (photographer && medias) {
         displayProfileData(photographer, medias);
-    } else {
-        console.error("Photographer or media data is missing or incorrect");
+        updateLikes();
     }
 }
 

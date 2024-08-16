@@ -11,7 +11,7 @@
 </head>
 <body>
   <header class="header">
-    <a href="./index.html" aria-label="Home page">
+    <a href="./index.html" aria-label="Page d'accueil">
       <img src="assets/images/logo/logo.png" class="logo" alt="fisheye logo"/>
     </a>
   </header>
@@ -19,14 +19,15 @@
     <section>
       <div class="photograph-header">
         <div class="photograph-profile" role="informations"></div>
-        <button class="contact_button" onclick="displayModal()" aria-label="Open the contact window">Contactez-moi</button>
-        <div class="image-profile" role="image" aria-label="Photographer's image"></div>
+        <button class="contact_button" onclick="displayModal()" aria-label="Ouvrir la fenêtre de contact" tabindex="0">Contactez-moi</button>
+        <div class="image-profile" role="image" aria-label="Image du photographe"
+        ></div>
       </div>
       <div class="sort_by">
         <h4 class="sort_title">Trier par</h4>
         <ul class="dropdown">
           <span class="fa-solid fa-chevron-up"></span>
-          <li role="button" aria-label="Media sorting dropdown" id="dropdown-selected">Popularité</li>
+          <li role="button"  aria-label="Menu déroulant pour trier les médias" id="dropdown-selected">Popularité</li>
           <li aria-expanded="false" role="list" class="dropdown-list-container">
             <ul class="dropdown-list">
               <li class="dropdown-button-value" id="option-1" aria-label="Popularity, allows sorting media by popularity">Popularité</li>
@@ -40,17 +41,17 @@
         <div class="medias"></div>
       </div>
       <div class="modal-img">
-        <span class="close" aria-label="close the lightbox"><i class="fas fa-times"></i></span>
+        <span class="close" aria-label="Fermer la lightbox"><i class="fas fa-times"></i></span>
         <div class="modalContent">
           <div class="modal-image-button">
-            <span type="button" class="image-button back" aria-label="return to the previous media">
+            <span type="button" class="image-button back" aria-label="Revenir au média précédent">
               <i class="fa-solid fa-chevron-left fa-2xl"></i>
             </span>
             <div class="image-txt">
               <img src="" class="modalImg" />
               <span class="modalTxt"></span>
             </div>
-            <span type="button" class="image-button next" aria-label="return to the next media">
+            <span type="button" class="image-button next" aria-label="Aller au média suivant">
               <i class="fa-solid fa-chevron-right fa-2xl"></i>
             </span>
           </div>
@@ -64,26 +65,26 @@
       <div class="modal" role="dialog" aria-labelledby="modal-title">
         <header>
           <h2 id="modal-title">Contactez-moi </br><strong class="modal-photographer-name"></strong></h2>
-          <img src="assets/icons/close.svg" alt="icon of a cross to close the window" role="button" aria-label="Button to close the contact window" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" alt="icon of a cross to close the window" role="button" tabindex="6"  aria-label="Bouton pour fermer la fenêtre de contact" onclick="closeModal()" />
         </header>
         <form name="form" action="photographer.html" method="post">
           <div class="formData">
             <label for="first">Prénom</label><br />
-            <input class="text-control" type="text" id="first" name="first" aria-label="Field to enter your first name" /><br />
+            <input class="text-control" type="text" id="first" name="first" aria-label="Champ pour entrer votre prénom" /><br />
           </div>
           <div class="formData">
             <label for="last">Nom</label><br />
-            <input class="text-control" type="text" id="last" name="last" aria-label="Field to enter your last name" /><br />
+            <input class="text-control" type="text" id="last" name="last" aria-label="Champ pour entrer votre nom de famille" /><br />
           </div>
           <div class="formData">
             <label for="email">E-mail</label><br />
-            <input class="text-control" type="email" id="email" name="email" aria-label="Field to enter your email" /><br />
+            <input class="text-control" type="email" id="email" name="email" aria-label="Champ pour entrer votre adresse e-mail" /><br />
           </div>
           <div class="formData">
             <label for="your-message">Votre message</label><br />
-            <textarea name="message" id="textarea" rows="5" aria-label="Field limited to write your message" placeholder="Entrez ici votre message"></textarea><br />
+            <textarea name="message" id="textarea" rows="5" aria-label="Champ pour entrer votre message" placeholder="Entrez ici votre message"></textarea><br />
           </div>
-          <button type="submit" class="contact_button" aria-label="Button to submit the contact form">Envoyer</button>
+          <button type="submit" class="contact_button" aria-label="Bouton pour envoyer le formulaire de contact" tabindex="5">Envoyer</button>
         </form>
       </div>
     </div>

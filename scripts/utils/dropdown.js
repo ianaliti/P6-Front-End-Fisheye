@@ -109,14 +109,63 @@ export const setDropdownList = (medias, photographerName) => {
         renderMedias(photographerMedias, photographerName);
     }
 
+    function attachLikeListeners() {
+        const likeIcons = document.querySelectorAll('.like-icon');
+    
+        likeIcons.forEach(icon => {
+            icon.addEventListener('click', () => {
+                const likeCountSpan = icon.previousElementSibling;
+                let likeCount = parseInt(likeCountSpan.textContent, 10);
+    
+                if (icon.classList.contains('liked')) {
+                    // If already liked, unlike it
+                    likeCount -= 1;
+                    icon.classList.remove('liked');
+                } else {
+                    // Like the media
+                    likeCount += 1;
+                    icon.classList.add('liked');
+                }
+    
+                likeCountSpan.textContent = likeCount;
+                updateTotalLikes(); // Recalculate and update the total likes
+            });
+        });
+    }
+
+    function updateTotalLikes() {
+        const totalLikesElement = document.querySelector('.total-likes-number');
+        const likeCountSpans = document.querySelectorAll('.image-like-number');
+        let totalLikes = 0;
+    
+        likeCountSpans.forEach(span => {
+            totalLikes += parseInt(span.textContent, 10);
+        });
+    
+        totalLikesElement.textContent = totalLikes;
+    }        
+
     function renderMedias(medias, photographerName) {
         const mediaContainer = document.querySelector('.medias');
-        mediaContainer.innerHTML = '';
+        mediaContainer.innerHTML = ''; // Clear existing media items
+    
+        if (!photographerName) {
+            console.error("Photographer name is undefined in renderMedias function");
+            return;
+        }
+    
         const mediaFactory = new MediaFactory();
         medias.forEach(media => {
             const mediaComponent = mediaFactory.createComponent(media.image ? "image" : "video", media);
-            const mediaDOM = mediaComponent.getMediaDOM();
-            mediaContainer.appendChild(mediaDOM);
+            const mediaDOM = mediaComponent.getMediaDOM(photographerName);
+            if (mediaDOM) {
+                mediaContainer.appendChild(mediaDOM);
+            } else {
+                console.error(`Failed to create media DOM for media ID ${media.id}`);
+            }
         });
-    }
+    
+        attachLikeListeners(); // Reattach like event listeners after rendering
+        updateTotalLikes(); // Recalculate and update the total likes after rendering
+    }    
 };

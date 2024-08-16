@@ -25,6 +25,7 @@ export class ImageMedia {
         const img = document.createElement('img');
         img.src = `assets/images/${imageFolder}/${this.image}`;
         img.alt = this.title;
+        img.setAttribute('aria-label', `Photo intitulée ${this.title}`);
 
         // Create the container for media info
         const mediaInfo = document.createElement('div');
@@ -42,11 +43,12 @@ export class ImageMedia {
         const likeCount = document.createElement('span');
         likeCount.classList.add('image-like-number');
         likeCount.textContent = this.likes;
+        likeCount.setAttribute('aria-label', `${this.likes} j'aime`);
 
         // Add the like icon
         const likeIcon = document.createElement('i');
         likeIcon.className = "fa-solid fa-heart like-icon";
-        likeIcon.setAttribute("aria-label", "button to like the media");
+        likeIcon.setAttribute("aria-label", "aimer ce média");
         likeIcon.setAttribute("role", "button");
         likeIcon.setAttribute("tabindex", "0");
 

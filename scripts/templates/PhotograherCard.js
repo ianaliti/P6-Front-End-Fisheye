@@ -20,7 +20,7 @@ export class PhotographerCard {
 
         const link = document.createElement("a");
         link.setAttribute("href", `photographer.html?id=${this.id}&name=${this.name}`);
-        link.setAttribute('aria-label', `${this.name} photographe de ${this.city} ${this.country}, ${this.tagline} au prix de ${this.price}`);
+        link.setAttribute('aria-label', `${this.name}, photographe à ${this.city} ${this.country}, ${this.tagline}, au prix de ${this.price}`);
         link.classList.add("profile-link");
 
         const img = document.createElement('img');

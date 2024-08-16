@@ -39,7 +39,7 @@ export class PhotographerProfile {
         img.classList.add("profile-img-big");
         img.setAttribute("src", picture);
         img.setAttribute("alt", `Portrait of ${this.name}`);
-        img.setAttribute("aria-label", `Portrait of ${this.name}`);
+        img.setAttribute("aria-label", `Portrait de ${this.name}`);
 
         article.appendChild(cardContent);
         cardContent.appendChild(h2);

@@ -26,6 +26,7 @@ export class VideoMedia {
         source.type = 'video/mp4';
         video.appendChild(source);
         video.alt = this.title;
+        video.setAttribute('aria-label', `Vidéo intitulée ${this.title}`);
 
         const mediaInfo = document.createElement('div');
         mediaInfo.classList.add('media-info');
@@ -39,10 +40,11 @@ export class VideoMedia {
         const likeCount = document.createElement('span');
         likeCount.classList.add('image-like-number');
         likeCount.textContent = this.likes;
+        likeCount.setAttribute('aria-label', `${this.likes} j'aime`);
 
         const likeIcon = document.createElement('i');
         likeIcon.className = "fa-solid fa-heart like-icon";
-        likeIcon.setAttribute("aria-label", "button to like the media");
+        likeIcon.setAttribute("aria-label", "aimer ce média");
         likeIcon.setAttribute("role", "button");
         likeIcon.setAttribute("tabindex", "0");
 
