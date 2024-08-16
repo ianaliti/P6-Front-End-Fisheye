@@ -50,7 +50,8 @@ async function init() {
     
     if (photographer && medias) {
         displayProfileData(photographer, medias);
-        updateLikes();
+    } else {
+        console.error("Photographer or media data is missing or incorrect");
     }
 }
 
