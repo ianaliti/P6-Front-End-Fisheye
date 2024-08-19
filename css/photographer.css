@@ -1,5 +1,5 @@
 .photograph-header {
-    background-color: #FAFAFA;
+    background-color: var(--second-bg2-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -10,11 +10,19 @@
     display: block;
 }
 
-.profile-card-title {
+.profile-card-title-card {
     margin: 0;
+    font-size: 64px;
+    font-weight: 400;
+    color: var(--primary-font-color);
 }
 
-.profile-tagline {
+.profile-loc-text-card{
+    color: var(--primary-bg-color);
+    font-size: 24px;
+}
+
+.profile-tagline-card {
     font-size: 18px;
     color: #525252;
 }

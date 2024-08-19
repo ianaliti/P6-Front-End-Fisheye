@@ -5,6 +5,7 @@
     --primary-font-color: #D3573C;
     --primary-bg-color: #901C1C;
     --second-bg-color: #DB8876;
+    --second-bg2-color: #FAFAFA;
     --primary-border-color: #C4C4C4;
 }
 
@@ -84,6 +85,7 @@ h1 {
     color: var(--primary-font-color);
     font-weight: 400;
     font-size: 36px;
+    margin: 0;
 }
 
 .card-text {
@@ -96,7 +98,7 @@ h1 {
 
 .profile-loc-text {
     text-transform: capitalize;
-    color: var(--primary-font-color);
+    color: var(--primary-bg-color);
     font-size: 13px;
 }
 

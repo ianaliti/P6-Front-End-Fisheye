@@ -44,7 +44,7 @@ export class VideoMedia {
 
         const likeIcon = document.createElement('i');
         likeIcon.className = "fa-solid fa-heart like-icon";
-        likeIcon.setAttribute("aria-label", "aimer ce média");
+        likeIcon.setAttribute("aria-label", "Aimer ce média");
         likeIcon.setAttribute("role", "button");
         likeIcon.setAttribute("tabindex", "0");
 

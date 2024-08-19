@@ -16,6 +16,7 @@ export function getLikesAndPrice(price, medias) {
 
     const i = document.createElement('i');
     i.className = "fa-solid fa-heart";
+    i.setAttribute('role', 'button')
     i.setAttribute('aria-label', 'likes');
 
     const priceText = document.createElement('div');

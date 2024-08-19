@@ -20,19 +20,19 @@ export class PhotographerProfile {
         cardContent.classList.add("card-content");
 
         const h2 = document.createElement('h2');
-        h2.classList.add("profile-card-title");
+        h2.classList.add("profile-card-title-card");
         h2.textContent = this.name;
         h2.setAttribute("aria-label", this.name);
 
         const cardText = document.createElement('div');
-        cardText.classList.add("card-profile-text");
+        cardText.classList.add("card-profile-text-card");
 
         const location = document.createElement('p');
-        location.classList.add("profile-loc-text");
+        location.classList.add("profile-loc-text-card");
         location.textContent = `${this.city}, ${this.country}`;
 
         const taglines = document.createElement('p');
-        taglines.classList.add("profile-tagline");
+        taglines.classList.add("profile-tagline-card");
         taglines.textContent = this.tagline;
 
         const img = document.createElement('img');
