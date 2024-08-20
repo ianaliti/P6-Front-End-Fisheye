@@ -36,11 +36,11 @@ export class PhotographerCard {
         const cardText = document.createElement('div');
         cardText.classList.add("card-text");
 
-        const location = document.createElement('p');
+        const location = document.createElement('h3');
         location.classList.add("profile-loc-text");
         location.textContent = `${this.city}, ${this.country}`;
 
-        const taglines = document.createElement('p');
+        const taglines = document.createElement('h3');
         taglines.classList.add("profile-tagline");
         taglines.textContent = this.tagline;
 

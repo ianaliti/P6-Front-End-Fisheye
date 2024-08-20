@@ -17,7 +17,7 @@ export class Lightbox {
     init() {
         this.images.forEach((image, index) => {
             image.addEventListener("click", () => {
-                this.showImage(index);
+                this.showImage(index); // Display image in the modal when clicked
             });
         });
 

@@ -85,7 +85,7 @@ h1 {
     color: var(--primary-font-color);
     font-weight: 400;
     font-size: 36px;
-    margin: 0;
+    margin: 5px;
 }
 
 .card-text {
@@ -100,14 +100,17 @@ h1 {
     text-transform: capitalize;
     color: var(--primary-bg-color);
     font-size: 13px;
+    margin: 5px;
 }
 
 .profile-tagline {
-    font-size: 10px;
+    font-size: 12px;
+    margin: 5px;
 }
 
 .profile-price {
     text-transform: capitalize;
-    font-size: 9px;
-    color: var(--primary-border-color);
+    font-size: 11px;
+    color: #757575;
+    margin: 0;
 }

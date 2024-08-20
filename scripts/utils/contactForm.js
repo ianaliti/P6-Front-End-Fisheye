@@ -24,24 +24,42 @@ function closeModal() {
   modal.style.display = "none";
   modalBackground.style.opacity = '1';
   logo.style.opacity = '1';
+  console.log('Modal closed');
 }
 
-// Attach these functions to the window object to make them accessible globally
-window.displayModal = displayModal;
-window.closeModal = closeModal;
+// Function to handle arrow key navigation through form fields
+function handleArrowKeyNavigation(event) {
+  const focusableElements = Array.from(form.querySelectorAll('input, textarea, button'));
+  const currentIndex = focusableElements.indexOf(document.activeElement);
+
+  console.log('Key pressed:', event.key);  // Debugging statement
+  console.log('Current index:', currentIndex);  // Debugging statement
+  console.log('Focusable elements:', focusableElements);  // Debugging statement
+
+  if (event.key === 'ArrowDown' && currentIndex < focusableElements.length - 1) {
+    event.preventDefault();
+    focusableElements[currentIndex + 1].focus();
+  } else if (event.key === 'ArrowUp' && currentIndex > 0) {
+    event.preventDefault();
+    focusableElements[currentIndex - 1].focus();
+  }
+}
 
 // Form submission handling
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   console.log(first.value, last.value, email.value, textarea.value);
-  closeModal()
+  closeModal();
 });
 
 // Handle form submission via Enter key
 form.addEventListener('keyup', (event) => {
   if (event.key === 'Enter') {
-      event.preventDefault();
-      console.log(first.value, last.value, email.value, textarea.value);
-      closeModal()
+    event.preventDefault();
+    console.log(first.value, last.value, email.value, textarea.value);
+    closeModal();
   }
 });
+
+// Add keydown event listener to handle arrow key navigation
+form.addEventListener('keydown', handleArrowKeyNavigation);

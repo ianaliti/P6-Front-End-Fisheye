@@ -276,6 +276,11 @@
     background-color: transparent;
 }
 
+.modal-photographer-name {
+    font-weight: 400;
+    font-size: 64px;
+}
+
 .close {
     position: absolute;
     color: var(--primary-bg-color);

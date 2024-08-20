@@ -19,30 +19,30 @@ export class PhotographerProfile {
         const cardContent = document.createElement('div');
         cardContent.classList.add("card-content");
 
-        const h2 = document.createElement('h2');
-        h2.classList.add("profile-card-title-card");
-        h2.textContent = this.name;
-        h2.setAttribute("aria-label", this.name);
+        const h1 = document.createElement('h1');
+        h1.classList.add("profile-card-title-card");
+        h1.textContent = this.name;
+        h1.setAttribute("aria-label", this.name);
 
         const cardText = document.createElement('div');
         cardText.classList.add("card-profile-text-card");
 
-        const location = document.createElement('p');
+        const location = document.createElement('h2');
         location.classList.add("profile-loc-text-card");
         location.textContent = `${this.city}, ${this.country}`;
 
-        const taglines = document.createElement('p');
+        const taglines = document.createElement('h3');
         taglines.classList.add("profile-tagline-card");
         taglines.textContent = this.tagline;
 
         const img = document.createElement('img');
         img.classList.add("profile-img-big");
         img.setAttribute("src", picture);
-        img.setAttribute("alt", `Portrait of ${this.name}`);
+        img.setAttribute("alt", ``);
         img.setAttribute("aria-label", `Portrait de ${this.name}`);
 
         article.appendChild(cardContent);
-        cardContent.appendChild(h2);
+        cardContent.appendChild(h1);
         article.appendChild(cardText);
         cardText.appendChild(location);
         cardText.appendChild(taglines);

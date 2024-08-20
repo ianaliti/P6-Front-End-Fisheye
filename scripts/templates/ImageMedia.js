@@ -24,7 +24,7 @@ export class ImageMedia {
         // Create the image element
         const img = document.createElement('img');
         img.src = `assets/images/${imageFolder}/${this.image}`;
-        img.alt = this.title;
+        img.alt = `image nommée ${this.title}`;
         img.setAttribute('aria-label', `Photo intitulée ${this.title}`);
 
         // Create the container for media info
@@ -32,7 +32,7 @@ export class ImageMedia {
         mediaInfo.classList.add('media-info');
 
         // Add the title element
-        const titleElement = document.createElement('p');
+        const titleElement = document.createElement('h4');
         titleElement.textContent = this.title;
 
         // Create the container for the like button and count

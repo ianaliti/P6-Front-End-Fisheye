@@ -24,14 +24,15 @@ export class VideoMedia {
         const source = document.createElement('source');
         source.src = `assets/images/${imageFolder}/${this.video}`;
         source.type = 'video/mp4';
+        
         video.appendChild(source);
-        video.alt = this.title;
+        video.alt = `video nommée ${this.title}`;
         video.setAttribute('aria-label', `Vidéo intitulée ${this.title}`);
 
         const mediaInfo = document.createElement('div');
         mediaInfo.classList.add('media-info');
 
-        const titleElement = document.createElement('p');
+        const titleElement = document.createElement('h4');
         titleElement.textContent = this.title;
 
         const likeContainer = document.createElement('div');
