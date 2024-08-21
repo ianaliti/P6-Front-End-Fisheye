@@ -15,19 +15,30 @@ export class VideoMedia {
         }
 
         const nameArray = photographerName.split(' ');
-        const imageFolder = nameArray[0]; // Assuming the folder name matches the first name of the photographer
+        const imageFolder = nameArray[0]; 
 
         const mediaElement = document.createElement('div');
         mediaElement.classList.add('media-container');
 
         const video = document.createElement('video');
+        video.setAttribute('controls', '');
+        video.title = this.title;
+        video.setAttribute('aria-label', `Vidéo intitulée ${this.title}`);
+        video.src = `assets/images/${imageFolder}/${this.video}`;
+
         const source = document.createElement('source');
         source.src = `assets/images/${imageFolder}/${this.video}`;
         source.type = 'video/mp4';
-        
         video.appendChild(source);
-        video.alt = `video nommée ${this.title}`;
-        video.setAttribute('aria-label', `Vidéo intitulée ${this.title}`);
+
+        //  // Adding track element for captions/subtitles
+        //  const track = document.createElement('track');
+        //  track.setAttribute('kind', 'subtitles');
+        //  track.setAttribute('label', 'English');
+        //  track.setAttribute('srclang', 'en');
+        //  track.setAttribute('default', '');
+ 
+        //  video.appendChild(track)
 
         const mediaInfo = document.createElement('div');
         mediaInfo.classList.add('media-info');

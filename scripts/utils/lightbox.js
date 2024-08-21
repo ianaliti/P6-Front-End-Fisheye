@@ -14,7 +14,8 @@ export class Lightbox {
         this.init();
     }
 
-    init() {
+
+    init() {        
         this.images.forEach((image, index) => {
             image.addEventListener("click", () => {
                 this.showImage(index); // Display image in the modal when clicked
@@ -31,7 +32,7 @@ export class Lightbox {
         this.currentIndex = index;
         const image = this.images[index];
         this.modalImg.src = image.src;
-        this.modalTxt.textContent = image.alt;
+        this.modalTxt.textContent = image.title;
         this.modalLightbox.classList.add("appear");
     }
 

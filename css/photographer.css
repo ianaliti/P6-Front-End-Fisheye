@@ -265,6 +265,7 @@
 .modalTxt {
     margin-top: 1em;
     font-size: 22px;
+    width: 100%;
     color: var(--primary-bg-color);
 }
 

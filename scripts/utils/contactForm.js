@@ -27,23 +27,9 @@ function closeModal() {
   console.log('Modal closed');
 }
 
-// Function to handle arrow key navigation through form fields
-function handleArrowKeyNavigation(event) {
-  const focusableElements = Array.from(form.querySelectorAll('input, textarea, button'));
-  const currentIndex = focusableElements.indexOf(document.activeElement);
-
-  console.log('Key pressed:', event.key);  // Debugging statement
-  console.log('Current index:', currentIndex);  // Debugging statement
-  console.log('Focusable elements:', focusableElements);  // Debugging statement
-
-  if (event.key === 'ArrowDown' && currentIndex < focusableElements.length - 1) {
-    event.preventDefault();
-    focusableElements[currentIndex + 1].focus();
-  } else if (event.key === 'ArrowUp' && currentIndex > 0) {
-    event.preventDefault();
-    focusableElements[currentIndex - 1].focus();
-  }
-}
+// Attach these functions to the window object to make them accessible globally
+window.displayModal = displayModal;
+window.closeModal = closeModal;
 
 // Form submission handling
 form.addEventListener('submit', (event) => {
@@ -60,6 +46,3 @@ form.addEventListener('keyup', (event) => {
     closeModal();
   }
 });
-
-// Add keydown event listener to handle arrow key navigation
-form.addEventListener('keydown', handleArrowKeyNavigation);

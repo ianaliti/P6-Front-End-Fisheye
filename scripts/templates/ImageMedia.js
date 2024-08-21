@@ -25,6 +25,7 @@ export class ImageMedia {
         const img = document.createElement('img');
         img.src = `assets/images/${imageFolder}/${this.image}`;
         img.alt = `image nommée ${this.title}`;
+        img.title = this.title;
         img.setAttribute('aria-label', `Photo intitulée ${this.title}`);
 
         // Create the container for media info

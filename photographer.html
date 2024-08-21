@@ -63,27 +63,27 @@
   </main>
   <section class="modal-section">
     <div id="contact_modal">
-      <div class="modal" role="dialog" aria-labelledby="modal-title">
+      <div class="modal" role="dialog" aria-labelledby="2">
         <header>
-          <h2 id="modal-title">Contactez-moi <br><strong class="modal-photographer-name"></strong></h2>
+          <h2 id="2">Contactez-moi <br><strong class="modal-photographer-name"></strong></h2>
           <img src="assets/icons/close.svg" alt="icon of a cross to close the window" role="button" tabindex="0" aria-label="Bouton pour fermer la fenêtre de contact" onclick="closeModal()" >
         </header>
         <form name="form" action="photographer.html" method="post">
           <div class="formData">
-            <label for="first">Prénom</label><br>
-            <input class="text-control" type="text" id="first" name="first" aria-label="Champ pour entrer votre prénom"><br>
+            <label for="first" id="3">Prénom</label><br>
+            <input class="text-control" type="text" id="first" name="first" aria-labelledby="3" aria-label="Champ pour entrer votre prénom"><br>
           </div>
           <div class="formData">
-            <label for="last">Nom</label><br>
-            <input class="text-control" type="text" id="last" name="last" aria-label="Champ pour entrer votre nom de famille"><br>
+            <label for="last" id="5">Nom</label><br>
+            <input class="text-control" type="text" id="last" name="last" aria-labelledby="5" aria-label="Champ pour entrer votre nom de famille"><br>
           </div>
           <div class="formData">
-            <label for="email">E-mail</label><br>
-            <input class="text-control" type="email" id="email" name="email" aria-label="Champ pour entrer votre adresse e-mail"><br>
+            <label for="email" id="7">E-mail</label><br>
+            <input class="text-control" type="email" id="email" name="email" aria-labelledby="7" aria-label="Champ pour entrer votre adresse e-mail"><br>
           </div>
           <div class="formData">
-            <label for="textarea">Votre message</label><br>
-            <textarea name="message" id="textarea" rows="5" aria-label="Champ pour entrer votre message" placeholder="Entrez ici votre message"></textarea><br>
+            <label for="textarea" id="9">Votre message</label><br>
+            <textarea name="message" id="textarea" rows="5" aria-labelledby="9" aria-label="Champ pour entrer votre message" placeholder="Entrez ici votre message"></textarea><br>
           </div>
           <button type="submit" class="contact_button" aria-label="Bouton pour envoyer le formulaire de contact">Envoyer</button>
         </form>
