@@ -1,4 +1,3 @@
-// Lightbox class to handle image previews in a modal
 export class Lightbox {
     constructor() {
         this.images = document.querySelectorAll('.media-container img');
@@ -14,11 +13,10 @@ export class Lightbox {
         this.init();
     }
 
-
-    init() {        
+    init() {
         this.images.forEach((image, index) => {
             image.addEventListener("click", () => {
-                this.showImage(index); // Display image in the modal when clicked
+                this.showImage(index);
             });
         });
 
@@ -32,7 +30,7 @@ export class Lightbox {
         this.currentIndex = index;
         const image = this.images[index];
         this.modalImg.src = image.src;
-        this.modalTxt.textContent = image.title;
+        this.modalTxt.textContent = image.alt;
         this.modalLightbox.classList.add("appear");
     }
 

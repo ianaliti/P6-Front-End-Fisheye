@@ -12,6 +12,7 @@ async function displayProfileData(photographer, medias) {
     const mediaFactory = new MediaFactory();
 
     const photographerSection = document.querySelector('.photograph-profile');
+    
     const photographerProfile = factory.createComponent("photographerProfile", photographer);
     const profileDOM = photographerProfile.getUserProfileCard();
     photographerSection.appendChild(profileDOM);
@@ -41,9 +42,9 @@ async function displayProfileData(photographer, medias) {
 
 // Initialize the photographer page
 async function init() {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const id = urlParams.get('id');
+    const queryString = window.location.search; // returns the query string from the current URL of the web page(after ?)
+    const urlParams = new URLSearchParams(queryString); //create an object that used to access the individual query parameters
+    const id = urlParams.get('id'); //return id as a string
 
     const photographer = await getPhotographerById(id);
     const medias = await getMediasById(id);

@@ -95,17 +95,17 @@ export const setDropdownList = (medias, photographerName) => {
     }
 
     function sortByName(photographerMedias) {
-        photographerMedias.sort((a, b) => a.title.localeCompare(b.title));
+        photographerMedias.sort((a, b) => a.title.localeCompare(b.title)); //Alphabetical order.
         renderMedias(photographerMedias, photographerName);
     }
 
     function sortByPopularity(photographerMedias) {
-        photographerMedias.sort((a, b) => b.likes - a.likes);
+        photographerMedias.sort((a, b) => b.likes - a.likes); //Number of likes, from most to least.
         renderMedias(photographerMedias, photographerName);
     }
 
     function sortByDateRecentToOld(photographerMedias) {
-        photographerMedias.sort((a, b) => new Date(b.date) - new Date(a.date));
+        photographerMedias.sort((a, b) => new Date(b.date) - new Date(a.date)); //From the most recent to the oldest.
         renderMedias(photographerMedias, photographerName);
     }
 
