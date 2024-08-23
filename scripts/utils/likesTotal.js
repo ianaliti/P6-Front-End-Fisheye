@@ -33,20 +33,19 @@ export function getLikesAndPrice(price, medias) {
 }
 
 export function updateLikes() {
-    const likes = document.querySelectorAll('.media-container');
-    likes.forEach(post => {
-        const ratings = post.querySelectorAll(".likesAndIcon");
-        ratings.forEach(rating => {
-            const span = rating.querySelector('.image-like-number');
-            const icon = rating.querySelector('.like-icon');
+    const ratings = document.querySelectorAll('.likesAndIcon');
+    
+    ratings.forEach(rating => {
+        const span = rating.querySelector('.image-like-number');
+        const icon = rating.querySelector('.like-icon');
 
-            icon.addEventListener("click", () => handleLike(rating, span));
-            icon.addEventListener("keyup", (event) => {
-                if (event.key === "Enter") handleLike(rating, span);
-            });
+        icon.addEventListener("click", () => handleLike(rating, span));
+        icon.addEventListener("keyup", (event) => {
+            if (event.key === "Enter") handleLike(rating, span);
         });
     });
 }
+
 
 function handleLike(rating, span) {
     const totalLikesNumber = document.querySelector('.total-likes-number');
