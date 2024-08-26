@@ -95,8 +95,10 @@ export const setDropdownList = (medias, photographerName) => {
             document.querySelector(`#${listItemIds[0]}`).focus();
         } else {
             const currentActiveElementIndex = listItemIds.indexOf(activeElementId);
+                //Check if the current item isn't the last item in the list 
             if (direction === DOWN_ARROW_KEY_CODE && currentActiveElementIndex < listItemIds.length - 1) {
                 document.querySelector(`#${listItemIds[currentActiveElementIndex + 1]}`).focus();
+                //Check if the current item isn't the first item in the list 
             } else if (direction === UP_ARROW_KEY_CODE && currentActiveElementIndex > 0) {
                 document.querySelector(`#${listItemIds[currentActiveElementIndex - 1]}`).focus();
             }

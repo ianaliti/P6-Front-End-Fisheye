@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <link href="css/style.css" rel="stylesheet" type="text/css">
   <meta charset="utf-8">
+  <title>Fisheye - photographe</title>
   <link rel="icon" type="image/png" href="assets/images/icon/favicon.png">
   <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-    crossorigin="anonymous">
-  <title>Fisheye - photographe</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" crossorigin="anonymous">
+  <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
   <header class="header">
     <a href="./index.html" aria-label="Page d'accueil">
-      <img src="assets/images/logo/logo.png" class="logo" alt="fisheye logo" >
+      <img src="assets/images/logo/logo.png" class="logo" alt="fisheye logo">
     </a>
   </header>
+
   <main class="main">
     <section>
       <div class="photograph-header">
@@ -22,13 +22,12 @@
         <button class="contact_button" onclick="displayModal()" aria-label="Ouvrir la fenêtre de contact" tabindex="0">Contactez-moi</button>
         <div class="image-profile"></div>
       </div>
+
       <div class="sort_by">
         <h4 id="dropdown-label" class="sort_title">Trier par</h4>
         <ul class="dropdown" aria-labelledby="dropdown-label">
           <li><span class="fa-solid fa-chevron-up"></span></li>
-           <li aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-list" id="dropdown-selected" tabindex="0" >
-            Popularité
-        </li>
+          <li aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-list" id="dropdown-selected" tabindex="0">Popularité</li>
           <li aria-expanded="false" class="dropdown-list-container" id="dropdown-list">
             <ul class="dropdown-list" role="menu">
               <li class="dropdown-button-value" id="option-1" role="menuitem" tabindex="0" aria-label="Popularity, allows sorting media by popularity">Popularité</li>
@@ -38,9 +37,11 @@
           </li>
         </ul>
       </div>
+
       <div class="media-content">
         <div class="medias"></div>
       </div>
+
       <div class="modal-img">
         <span class="close" aria-label="Fermer la lightbox" role="button"><i class="fas fa-times"></i></span>
         <div class="modalContent">
@@ -49,7 +50,7 @@
               <i class="fa-solid fa-chevron-left fa-2xl"></i>
             </button>
             <div class="image-txt">
-              <img src="" class="modalImg" alt="" >
+              <img src="" class="modalImg" alt="">
               <video src="" class="modalVideo" controls style="display: none;"></video>
               <span class="modalTxt"></span>
             </div>
@@ -60,37 +61,55 @@
         </div>
       </div>
     </section>
+
     <div class="total-likes"></div>
   </main>
+
+  <!-- Contact Modal Section -->
   <section class="modal-section">
     <div id="contact_modal">
-      <div class="modal" role="dialog" aria-labelledby="2">
+      <div class="modal" role="dialog" aria-labelledby="contact-modal-title">
         <header>
-          <h2 id="2">Contactez-moi <br><strong class="modal-photographer-name"></strong></h2>
-          <img src="assets/icons/close.svg" alt="icon of a cross to close the window" role="button" tabindex="0" aria-label="Bouton pour fermer la fenêtre de contact" onclick="closeModal()" >
+          <h2 id="contact-modal-title">Contactez-moi <br><strong class="modal-photographer-name"></strong></h2>
+          <img src="assets/icons/close.svg" alt="Icone pour fermer la fenêtre" role="button" tabindex="0" aria-label="Bouton pour fermer la fenêtre de contact" onclick="closeModal()">
         </header>
         <form name="form" action="photographer.html" method="post">
           <div class="formData">
-            <label for="first" id="3">Prénom</label><br>
-            <input class="text-control" type="text" id="first" name="first" aria-labelledby="3" aria-label="Champ pour entrer votre prénom"><br>
+            <label for="first" id="label-first">Prénom</label><br>
+            <input class="text-control" type="text" id="first" name="first" aria-labelledby="label-first" aria-label="Champ pour entrer votre prénom"><br>
           </div>
           <div class="formData">
-            <label for="last" id="5">Nom</label><br>
-            <input class="text-control" type="text" id="last" name="last" aria-labelledby="5" aria-label="Champ pour entrer votre nom de famille"><br>
+            <label for="last" id="label-last">Nom</label><br>
+            <input class="text-control" type="text" id="last" name="last" aria-labelledby="label-last" aria-label="Champ pour entrer votre nom de famille"><br>
           </div>
           <div class="formData">
-            <label for="email" id="7">E-mail</label><br>
-            <input class="text-control" type="email" id="email" name="email" aria-labelledby="7" aria-label="Champ pour entrer votre adresse e-mail"><br>
+            <label for="email" id="label-email">E-mail</label><br>
+            <input class="text-control" type="email" id="email" name="email" aria-labelledby="label-email" aria-label="Champ pour entrer votre adresse e-mail"><br>
           </div>
           <div class="formData">
-            <label for="textarea" id="9">Votre message</label><br>
-            <textarea name="message" id="textarea" rows="5" aria-labelledby="9" aria-label="Champ pour entrer votre message" placeholder="Entrez ici votre message"></textarea><br>
+            <label for="textarea" id="label-message">Votre message</label><br>
+            <textarea name="message" id="textarea" rows="5" aria-labelledby="label-message" aria-label="Champ pour entrer votre message" placeholder="Entrez ici votre message"></textarea><br>
           </div>
           <button type="submit" class="contact_button" aria-label="Bouton pour envoyer le formulaire de contact">Envoyer</button>
         </form>
       </div>
     </div>
-  </section>  
+  </section>
+
+  <!-- Success Modal Section -->
+  <section class="confirmModal">
+      <div class="content">
+        <div class="confirmModalContent">
+          <span class="closeModal"></span>
+          <p class="confirmModalText">
+            Merci pour votre inscription
+          </p>
+          <button class="confirmModalClose button">Fermer</button>
+        </div>
+      </div>
+  </section>
+
+  <!-- Scripts -->
   <script type="module" src="scripts/utils/fetchData.js"></script>
   <script type="module" src="scripts/utils/contactForm.js"></script>
   <script type="module" src="scripts/utils/dropdown.js"></script>

@@ -18,6 +18,13 @@ export class Lightbox {
             image.addEventListener("click", () => {
                 this.showImage(index);
             });
+
+            // Add keyboard event listener to open lightbox
+            image.addEventListener("keydown", (e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                    this.showImage(index);
+                }
+            });
         });
 
         this.close.addEventListener("click", () => this.closeModal());
@@ -30,8 +37,9 @@ export class Lightbox {
         this.currentIndex = index;
         const image = this.images[index];
         this.modalImg.src = image.src;
-        this.modalTxt.textContent = image.alt;
+        this.modalTxt.textContent = image.title;
         this.modalLightbox.classList.add("appear");
+        this.modalLightbox.focus(); // Focus on lightbox for keyboard navigation
     }
 
     showPreviousImage() {
@@ -45,14 +53,14 @@ export class Lightbox {
     }
 
     handleKeyUp(e) {
-        switch (e.keyCode) {
-            case 37: // Left arrow key
+        switch (e.key) {
+            case 'ArrowLeft':
                 this.showPreviousImage();
                 break;
-            case 39: // Right arrow key
+            case 'ArrowRight':
                 this.showNextImage();
                 break;
-            case 27: // Escape key
+            case 'Escape':
                 this.closeModal();
                 break;
         }

@@ -1,3 +1,4 @@
+// photographer.js
 import { getPhotographerById, getMediasById } from '../utils/fetchData.js';
 import { PhotographerFactory } from '../factories/PhotographerFactory.js';
 import { MediaFactory } from '../factories/MediaFactory.js';
@@ -47,9 +48,11 @@ async function init() {
     const id = urlParams.get('id'); //return id as a string
 
     const photographer = await getPhotographerById(id);
-    const medias = await getMediasById(id);
+    let medias = await getMediasById(id);
     
     if (photographer && medias) {
+        // Sort medias by popularity before displaying
+        medias.sort((a, b) => b.likes - a.likes);
         displayProfileData(photographer, medias);
     } else {
         console.error("Photographer or media data is missing or incorrect");

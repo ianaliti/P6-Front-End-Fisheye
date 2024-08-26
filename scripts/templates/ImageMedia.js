@@ -11,57 +11,56 @@ export class ImageMedia {
     getMediaDOM(photographerName) {
         if (!photographerName) {
             console.error("Photographer name is undefined");
-            return null; // Early return if photographerName is undefined
+            return null;
         }
 
         const nameArray = photographerName.split(' ');
-        const imageFolder = nameArray[0]; // Assuming the folder name matches the first name of the photographer
+        const imageFolder = nameArray[0];
 
-        // Create the container element for the media
         const mediaElement = document.createElement('div');
         mediaElement.classList.add('media-container');
+        mediaElement.setAttribute('tabindex', '0'); // Make the media element focusable
 
-        // Create the image element
         const img = document.createElement('img');
         img.src = `assets/images/${imageFolder}/${this.image}`;
         img.alt = `image nommée ${this.title}`;
         img.title = this.title;
         img.setAttribute('aria-label', `Photo intitulée ${this.title}`);
 
-        // Create the container for media info
+        // Keyboard interaction for opening lightbox
+        img.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                img.click(); // Trigger click to open lightbox
+            }
+        });
+
         const mediaInfo = document.createElement('div');
         mediaInfo.classList.add('media-info');
 
-        // Add the title element
         const titleElement = document.createElement('h4');
         titleElement.textContent = this.title;
 
-        // Create the container for the like button and count
         const likeContainer = document.createElement('div');
         likeContainer.classList.add('likesAndIcon');
 
-        // Add the like count
         const likeCount = document.createElement('span');
         likeCount.classList.add('image-like-number');
         likeCount.textContent = this.likes;
         likeCount.setAttribute('aria-label', `${this.likes} j'aime`);
 
-        // Add the like icon
         const likeIcon = document.createElement('i');
         likeIcon.className = "fa-solid fa-heart like-icon";
         likeIcon.setAttribute("aria-label", "Aimer ce média");
         likeIcon.setAttribute("role", "button");
         likeIcon.setAttribute("tabindex", "0");
 
-        // Append like count and icon to the like container
         likeContainer.appendChild(likeCount);
         likeContainer.appendChild(likeIcon);
 
-        // Append title and like container to the media info container
         mediaInfo.appendChild(titleElement);
         mediaInfo.appendChild(likeContainer);
 
-        // Append the image and media info to the media element
         mediaElement.appendChild(img);
         mediaElement.appendChild(mediaInfo);
 
