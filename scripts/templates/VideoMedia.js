@@ -25,20 +25,12 @@ export class VideoMedia {
         video.title = this.title;
         video.setAttribute('aria-label', `Vidéo intitulée ${this.title}`);
         video.src = `assets/images/${imageFolder}/${this.video}`;
+        video.setAttribute("tabindex", "0");
 
         const source = document.createElement('source');
         source.src = `assets/images/${imageFolder}/${this.video}`;
         source.type = 'video/mp4';
         video.appendChild(source);
-
-        //  // Adding track element for captions/subtitles
-        //  const track = document.createElement('track');
-        //  track.setAttribute('kind', 'subtitles');
-        //  track.setAttribute('label', 'English');
-        //  track.setAttribute('srclang', 'en');
-        //  track.setAttribute('default', '');
- 
-        //  video.appendChild(track)
 
         const mediaInfo = document.createElement('div');
         mediaInfo.classList.add('media-info');

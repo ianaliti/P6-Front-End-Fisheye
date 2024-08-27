@@ -45,71 +45,65 @@
       <div class="modal-img">
         <span class="close" aria-label="Fermer la lightbox" role="button"><i class="fas fa-times"></i></span>
         <div class="modalContent">
-          <div class="modal-image-button">
-            <button type="button" class="image-button back" aria-label="Revenir au média précédent">
-              <i class="fa-solid fa-chevron-left fa-2xl"></i>
-            </button>
-            <div class="image-txt">
-              <img src="" class="modalImg" alt="">
-              <video src="" class="modalVideo" controls style="display: none;"></video>
-              <span class="modalTxt"></span>
+            <div class="modal-image-button">
+                <button type="button" class="image-button back" aria-label="Revenir au média précédent">
+                    <i class="fa-solid fa-chevron-left fa-2xl"></i>
+                </button>
+                <div class="image-txt">
+                    <img src="" class="modalImg" alt="" style="display: none;">
+                    <video src="" class="modalVideo" controls style="display: none;"></video>
+                    <span class="modalTxt"></span>
+                </div>
+                <button type="button" class="image-button next" aria-label="Aller au média suivant">
+                    <i class="fa-solid fa-chevron-right fa-2xl"></i>
+                </button>
             </div>
-            <button type="button" class="image-button next" aria-label="Aller au média suivant">
-              <i class="fa-solid fa-chevron-right fa-2xl"></i>
-            </button>
-          </div>
         </div>
-      </div>
+    </div>
     </section>
 
     <div class="total-likes"></div>
   </main>
 
   <!-- Contact Modal Section -->
-  <section class="modal-section">
+  <section class="modal-section" tabindex="-1" aria-label="Contact Modal">
     <div id="contact_modal">
-      <div class="modal" role="dialog" aria-labelledby="contact-modal-title">
+      <div class="modal" role="dialog" aria-labelledby="contact-modal-title" aria-modal="true" tabindex="0">
         <header>
-          <h2 id="contact-modal-title">Contactez-moi <br><strong class="modal-photographer-name"></strong></h2>
+          <h2 id="contact-modal-title" tabindex="0">Contactez-moi <br><strong class="modal-photographer-name"></strong></h2>
           <img src="assets/icons/close.svg" alt="Icone pour fermer la fenêtre" role="button" tabindex="0" aria-label="Bouton pour fermer la fenêtre de contact" onclick="closeModal()">
         </header>
-        <form name="form" action="photographer.html" method="post">
+        <form name="form" action="photographer.html" method="post" aria-labelledby="contact-modal-title">
           <div class="formData">
             <label for="first" id="label-first">Prénom</label><br>
-            <input class="text-control" type="text" id="first" name="first" aria-labelledby="label-first" aria-label="Champ pour entrer votre prénom"><br>
+            <input class="text-control" type="text" id="first" name="first" aria-labelledby="label-first" aria-label="Champ pour entrer votre prénom" tabindex="0"><br>
           </div>
           <div class="formData">
             <label for="last" id="label-last">Nom</label><br>
-            <input class="text-control" type="text" id="last" name="last" aria-labelledby="label-last" aria-label="Champ pour entrer votre nom de famille"><br>
+            <input class="text-control" type="text" id="last" name="last" aria-labelledby="label-last" aria-label="Champ pour entrer votre nom de famille" tabindex="0"><br>
           </div>
           <div class="formData">
             <label for="email" id="label-email">E-mail</label><br>
-            <input class="text-control" type="email" id="email" name="email" aria-labelledby="label-email" aria-label="Champ pour entrer votre adresse e-mail"><br>
+            <input class="text-control" type="email" id="email" name="email" aria-labelledby="label-email" aria-label="Champ pour entrer votre adresse e-mail" tabindex="0"><br>
           </div>
           <div class="formData">
             <label for="textarea" id="label-message">Votre message</label><br>
             <textarea name="message" id="textarea" rows="5" aria-labelledby="label-message" aria-label="Champ pour entrer votre message" placeholder="Entrez ici votre message"></textarea><br>
           </div>
-          <button type="submit" class="contact_button" aria-label="Bouton pour envoyer le formulaire de contact">Envoyer</button>
+          <button type="submit" class="contact_button" aria-label="Bouton pour envoyer le formulaire de contact" tabindex="0">Envoyer</button>
         </form>
       </div>
     </div>
   </section>
 
-  <!-- Success Modal Section -->
-  <section class="confirmModal">
-      <div class="content">
-        <div class="confirmModalContent">
-          <span class="closeModal"></span>
-          <p class="confirmModalText">
-            Merci pour votre inscription
-          </p>
-          <button class="confirmModalClose button">Fermer</button>
-        </div>
-      </div>
+  <section class="confirmModal" aria-label="Success Modal" style="display: none;">
+    <div class="confirmModalContent" role="dialog" aria-labelledby="success-modal-title" aria-modal="true" tabindex="0">
+      <span class="closeModal" role="button" tabindex="0" aria-label="Bouton pour fermer la fenêtre de confirmation"></span>
+      <p class="confirmModalText" id="success-modal-title" tabindex="0">Merci pour votre inscription</p>
+      <button class="confirmModalClose button" aria-label="Bouton pour fermer la fenêtre de confirmation" tabindex="0">Fermer</button>
+    </div>
   </section>
 
-  <!-- Scripts -->
   <script type="module" src="scripts/utils/fetchData.js"></script>
   <script type="module" src="scripts/utils/contactForm.js"></script>
   <script type="module" src="scripts/utils/dropdown.js"></script>

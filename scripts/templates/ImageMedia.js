@@ -26,10 +26,11 @@ export class ImageMedia {
         img.alt = `image nommée ${this.title}`;
         img.title = this.title;
         img.setAttribute('aria-label', `Photo intitulée ${this.title}`);
+        img.setAttribute("tabindex", "0");
 
         // Keyboard interaction for opening lightbox
         img.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
+            if (e.key === 'Enter') {
                 e.preventDefault();
                 img.click(); // Trigger click to open lightbox
             }

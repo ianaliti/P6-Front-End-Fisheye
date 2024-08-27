@@ -169,5 +169,10 @@ export const setDropdownList = (medias, photographerName) => {
     
         attachLikeListeners(); // Reattach like event listeners after rendering
         updateTotalLikes(); // Recalculate and update the total likes after rendering
-    }    
+        
+        // Reattach lightbox event listeners
+        const lightbox = new Lightbox();
+        lightbox.updateMediaElements(); // Reattach the lightbox event listeners
+    }
+        
 };
