@@ -17,7 +17,15 @@ export class Lightbox {
     init() {
         this.updateMediaElements();
 
+        // Event listener to close the lightbox
         this.close.addEventListener("click", () => this.closeModal());
+
+        // Add keyboard event listener for close button
+        this.close.addEventListener("keydown", (event) => {
+            if (event.key === "Enter") {
+                this.closeModal();
+            }
+        });
 
         // Global keyup event for arrow navigation and closing the lightbox
         window.addEventListener("keyup", (e) => {
@@ -25,6 +33,14 @@ export class Lightbox {
                 this.handleKeyUp(e);
             }
         });
+
+        // Event listeners for arrow buttons
+        this.prevBtn.addEventListener("click", () => this.showPreviousMedia());
+        this.nextBtn.addEventListener("click", () => this.showNextMedia());
+
+        // Add keyboard navigation for arrow buttons (e.g., Enter key)
+        this.prevBtn.addEventListener("keydown", (e) => this.handleArrowKeyPress(e, "prev"));
+        this.nextBtn.addEventListener("keydown", (e) => this.handleArrowKeyPress(e, "next"));
     }
 
     updateMediaElements() {
@@ -48,6 +64,17 @@ export class Lightbox {
                 }
             });
         });
+    }
+
+    handleArrowKeyPress(event, direction) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            if (direction === "prev") {
+                this.showPreviousMedia();
+            } else if (direction === "next") {
+                this.showNextMedia();
+            }
+        }
     }
 
     showMedia(index) {

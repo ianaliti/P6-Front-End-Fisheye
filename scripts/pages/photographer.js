@@ -39,19 +39,7 @@ async function displayProfileData(photographer, medias) {
     setModalPhotographerName(photographer.name);
     new Lightbox();
     updateLikes(); // Ensure this is called after media items are added to the DOM
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    const lightbox = new Lightbox();
-    
-    // If media is dynamically loaded after the initial load:
-    function renderMediaAndInitializeLightbox() {
-        // Code to render media elements
-        lightbox.updateMediaElements(); // Re-attach event listeners
-    }
-    
-    renderMediaAndInitializeLightbox(); // Call this function when media is rendered
-});
+}         
 
 // Initialize the photographer page
 async function init() {

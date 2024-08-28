@@ -91,6 +91,9 @@ function closeSuccessModal() {
   successModal.style.display = "none";
   modalBackground.style.opacity = '1';
   logo.style.opacity = '1';
+
+  // Return focus to the "Contactez-moi" button or another logical element
+  document.querySelector('.contact_button').focus();
 }
 
 // Function to clear all input fields in the form after submission
