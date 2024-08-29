@@ -135,27 +135,41 @@ export const setDropdownList = (medias, photographerName) => {
     // Function to attach like button event listeners
     function attachLikeListeners() {
         const likeIcons = document.querySelectorAll('.like-icon');
-
+    
         likeIcons.forEach(icon => {
+            // Handle click event
             icon.addEventListener('click', () => {
-                const likeCountSpan = icon.previousElementSibling;
-                let likeCount = parseInt(likeCountSpan.textContent, 10);
-
-                if (icon.classList.contains('liked')) {
-                    // If already liked, decrease the like count
-                    likeCount -= 1;
-                    icon.classList.remove('liked');
-                } else {
-                    // Increase the like count
-                    likeCount += 1;
-                    icon.classList.add('liked');
+                toggleLike(icon);
+            });
+    
+            // Handle Enter key for keyboard navigation
+            icon.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter') {
+                    event.preventDefault(); // Prevent default action
+                    toggleLike(icon);
                 }
-
-                likeCountSpan.textContent = likeCount;
-                updateTotalLikes(); // Recalculate and update the total likes
             });
         });
     }
+    
+    function toggleLike(icon) {
+        const likeCountSpan = icon.previousElementSibling;
+        let likeCount = parseInt(likeCountSpan.textContent, 10);
+    
+        if (icon.classList.contains('liked')) {
+            // If already liked, decrease the like count
+            likeCount -= 1;
+            icon.classList.remove('liked');
+        } else {
+            // Increase the like count
+            likeCount += 1;
+            icon.classList.add('liked');
+        }
+    
+        likeCountSpan.textContent = likeCount;
+        updateTotalLikes(); // Recalculate and update the total likes
+    }
+    
 
     // Function to update the total number of likes displayed
     function updateTotalLikes() {
